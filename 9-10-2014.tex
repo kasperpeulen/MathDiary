@@ -1,0 +1,276 @@
+\section{9-10-2014}
+
+\subsection{Measure Theory}
+\begin{thm}[Problem 6.1a]
+Consider on \(\Bbb{R}\) the family \(\Sigma \) of all Borel sets which are symmetric w.r.t. the origin. Show that \(\Sigma \) is a \(\sigma \)-algebra.
+\end{thm}
+
+\begin{proof}
+
+\begin{enumerate}
+  \item To show that \(\Bbb{R}\in \Sigma \), note that \(\Bbb{R}\) is a Borel set that is symmetric w.r.t. to the origin.
+  \item To show that \(A\in \Sigma \Rightarrow A^c\in \Sigma \), it suffices to show that
+\[
+\forall x\in A:-x\in A \Longrightarrow  \forall y\in A^c:-y\in A^c,
+\]
+which is equivalent with showing that
+\[
+\forall x\in A:-x\in A \Longrightarrow \forall y\not\in A : -y\not\in A,
+\]
+which is equivalent with showing that
+\[
+\exists y\not\in A:-y\in A \Longrightarrow \exists x\in A:-x\not\in A.
+\]
+This last statement hold if we set \(x:=-y.\)
+  \item To show that \(\Sigma \) is stable under countable unions, assume \(A_{j}=B_{j}\cup B_{j}\) for some \(B_{j}\in \mathcal{B}([0,\infty )\). We have
+\[
+\bigcup _{j\in \Bbb{N}}A_{j}=\bigcup _{j\in \Bbb{N}}B_{j}\cup \bigcup _{j\in \Bbb{N}}-B_{j}\in \Sigma 
+\]
+\end{enumerate}
+\end{proof}
+%
+%\begin{thm}[Problem 6.1b]
+%Is it possible to extend a pre-measure \(\mu \) on \(\Sigma \) to a measure on %\(\mathcal{B}(\Bbb{R})\) ?
+%\end{thm}
+
+%\begin{proof}
+%Given a borel set $B$, make it a symmetric, by for example, taking all positive %values of $B$, call it $B_{+}$ together with $-B_{+}$. But this doesn't seem %unique. Couldn't I also just send all non-symmetric sets to $0$ ?
+%\end{proof}
+\newpage
+\begin{thm}[Problem 6.3i]
+Show that non-void open sets in \(\Bbb{R}^n\) have always strictly positive Lebesgue measure.
+\end{thm}
+
+\begin{proof}
+First remember that
+
+\begin{enumerate}
+  \item \(\displaystyle \lambda ^n[a,b)=\prod _{j=1}^n(b_{j}-a_{j})\)
+  \item \(\lambda ^n\) is a pre-measure that can be extended to a measure on \(\mathcal{B}(\Bbb{R}^n)\).
+  \item \(\lambda ^n\) is invariant under translations
+  \item \(A\subseteq B \Longrightarrow  \mu (A)\leq \mu (B)\)
+  \item \(Q_{\epsilon}=[-\epsilon,\epsilon)\)
+\end{enumerate}
+
+To show that \(\lambda ^n(U) > 0\) it suffices
+\[
+\lambda ^n(U')>0
+\]
+where \(0\in U'\) and $U'=x+U$ for some $x\in \Bbb{R}^n$. To show that it suffices to show that
+\[
+\lambda ^n(B_\epsilon(0))>0
+\]
+where $B_\epsilon(0)\subseteq U$. To show that it suffices to show that \(Q_{\epsilon'}\subseteq B_{\epsilon}\) for some \(\epsilon'>0\). This holds if we set \(\epsilon':=\frac{\epsilon}{\sqrt {2n}}\).
+\end{proof}
+
+\begin{thm}[Problem 6.3ii]
+Is 6.3i still true for closed sets ?
+\end{thm}
+
+\begin{proof}
+No, take \(\{0\}\), then \(\lambda \{x\}=0.\)
+\end{proof}
+
+\begin{thm}[Problem 6.4i]
+Show that \(\lambda (a,b)=b-a\) for all \(a,b\in \Bbb{R},\space a\leq b\).
+\end{thm}
+
+\begin{proof}
+\begin{align*}
+\lambda (a,b) &=\lambda ([b-a)-\{b\}) \\
+&=\lambda [b,a)-\lambda \{b\} &&\text{T4.3iii} \\
+&=b-a-0 && \text{Problem 4.11i}
+\end{align*}
+\end{proof}
+
+\begin{thm}[Problem 6.4ii]
+Let \(H\subseteq \Bbb{R}^{2}\) be a hyperplane which is perpendicular to the \(x_{1}\)-direction (that is to say: \(H\) is a translate of the \(x_{2}\) axis). Show that
+
+\begin{enumerate}
+  \item \(H\in \mathcal{B}(\Bbb{R}^2)\)
+  \item \(\lambda ^2(H)=0\)
+\end{enumerate}
+
+\end{thm}
+
+\begin{proof}
+\begin{enumerate}
+  \item To show that \(H\in \mathcal{B}(\Bbb{R}^2)\), it suffices to show that \(H\) is writable as an intersection of countable half-open sets.
+Note that:
+\[
+H:=\{y\}\times\Bbb{R}=\bigcap _{j\in \Bbb{N}} [y,y+1/j)\times\Bbb{R}
+\]
+  \item We have that for any \(\epsilon>0\):
+\begin{align*}
+\lambda ^2(H)&=\lambda ^2 (\{y\} \times \Bbb R) \\
+&\leq \lambda ^2\bigg(\bigcup _{n\in \Bbb{N}}[y,y+\epsilon_n)\times[-n,n) \bigg) \\
+&\leq 2 \sum _{n\in \Bbb{N}} \epsilon_n n \\
+&=\epsilon L
+\end{align*}
+This follows if we choose $\epsilon_n := \frac{\epsilon}{2^n}$. Therefore \(\lambda ^2(H)=0.\)
+\end{enumerate}
+
+\end{proof}
+
+\begin{defn}
+Let \((X,\mathcal{A},\mu )\) be a measure space such that all singletons \(\{x\}\in \mathcal{A}.\) A point \(x\) is called an atom, if \(\mu \{x\}>0.\) A measure is called \emph{non-atomic} or \emph{diffuse}, there are no atoms.
+\end{defn}
+
+\begin{thm}[Problem 6.5i]
+Show that \(\lambda ^{1}\) is diffuse.
+\end{thm}
+
+\begin{proof}
+We've already shown that \(\lambda \{x\}=0\) for any \(x\in \Bbb{R}\).
+\end{proof}
+
+\begin{thm}[Problem 6.5iii]
+Show that for a diffuse measure \(\mu \) on \((X,\mathcal{A})\) all countable sets are null sets.
+\end{thm}
+
+\begin{proof}
+All countable sets are writable as
+\[
+\bigcup _{j=0}^\infty \{x_{j}\}
+\]
+where \(x_{i}\neq x_{j}\). So we get
+\[
+\lambda \bigg(\bigcup _{j=0}^\infty \{x_{j}\}\bigg)=\sum _{j=0}^n\lambda \{x_{j}\}=0.
+\]
+\end{proof}
+
+\begin{defn}
+A set \(A\subseteq \Bbb{R}^n\) is called \emph{bounded} if it can be contained in a ball \(B_{r}\supseteq A\) of finite radius \(r\). A set \(A\subseteq \Bbb{R}^n\) is called \emph{connected}, if we can go along a curve from any point \(a\in A\) to any point \(a'\in A\) without ever leaving \(A\).
+\end{defn}
+
+\begin{thm}[Problem 6.6a]
+Construct an open and unbounded set in \(\Bbb{R}\) with finite, strictly positive Lebesgue measure.
+\end{thm}
+
+\begin{proof}
+Consider the set
+\[
+U:=\bigcup _{n=1}^\infty  \bigg(n-\frac{1}{2^n},n+\frac{1}{2^n}\bigg).
+\]
+
+This is an open set, as it union of countable open sets. It is unbounded, for any \(B_{r}(0)\) we have that $r+1\in U$ and not in \(B_{r}(0)\). We have to show that it has finite lebesgue measure.
+\begin{align*}
+\lambda (U)&=\bigcup _{n=1}^\infty  \bigg(n-\frac{1}{2^n},n+\frac{1}{2^n}\bigg)\\
+&=\sum _{n=1}^\infty \frac{2}{2^n}=2.
+\end{align*}
+\end{proof}
+
+\begin{thm}[Problem 6.6ii]
+Construct an open, unbounded and connected set in \(\Bbb{R}\) with finite, strictly positive Lebesgue measure.
+\end{thm}
+
+\begin{proof}
+Consider
+\[
+U=\bigcup _{j\in \Bbb{N}}[0,0+\epsilon/(2^j))\times[-j,j)
+\]
+then \begin{align*}
+\lambda ^2(U)&=\bigg(\bigcup _{j\in \Bbb{N}}(-\frac{1}{2^j},\frac{1}{2^j})\times(-j,j) \bigg)\\
+&\leq \sum _{j\in \Bbb{N}}\frac{4j}{2^j}
+\end{align*}
+Note that
+\[
+\sum _{j\in \Bbb{N}}\frac{j}{2^j}
+\]
+converges.
+\end{proof}
+
+\begin{thm}[Problem 6.6iii]
+Is there a connected, open and unbounded set in \(\Bbb{R}\) with finite, strictly positive Lebesgue measure ?
+\end{thm}
+
+
+\begin{proof}
+No, this is impossible. Since we are in one dimension, connectedness forces us to go between points in a straight, uninterrupted line. Since the set is unbounded, this means we must have a line of the sort \((a,\infty )\) or \((-\infty ,b)\) in our set and in both cases Lebesgue measure is infinite.
+\end{proof}
+
+\begin{defn}
+Let \(A \subset  X\). The closure of \(A\), denoted by \(\bar{A}\), is the smallest closed set
+containing \(A\), i.e.
+
+\[
+\bar{A}=\bigcap_{\substack{F\in \mathcal{C}\\F\supset A}} F
+\]
+
+\end{defn}
+
+\begin{defn}
+A set \(A\subseteq X\) is dense in \(X\) if \(\bar{A}=X\)
+\end{defn}
+
+\begin{thm}[Problem 6.7]
+Let \(\lambda :=\lambda ^1|_{[0,1]}\) be a Lebesgue measure on \(([0,1], \mathcal{B}[0,1])\). Show that for every \(\epsilon>0\) there is a dense open set \(U\subseteq [0,1]\) with \(\lambda (U)\leq \epsilon\).
+\end{thm}
+
+\begin{proof}
+Note that \(\Bbb{Q}\) is dense. We are going to make an open set contained in \(\Bbb{Q}\).
+Consider
+\[
+U:=\bigcup _{j=1}^\infty (q_{j}-\epsilon_{j},q_{j}+\epsilon_{j})
+\]
+Then
+\[
+\lambda (U)=\lambda (\bigcup _{j=1}^\infty (q_{j}-\epsilon_{j},q_{j}+\epsilon_{j}))\leq \sum 2\epsilon_{j}.
+\]
+
+So set \(\epsilon_{j}:=\frac{\epsilon}{2^{j-1}}\). And we are done.
+\end{proof}
+
+\begin{thm}[Problem 6.10i]
+Let \(\mu \) be a measure on \(\mathcal{A}=\{\varnothing ,[0,1),[1,2),[0,2)\}\) of $X=[0,2)$. Such that
+\[
+\mu [0,1)=\mu [1,2)=1/2 \qquad \mu [0,2)=1.
+\]
+
+Define for each \(A\subseteq [0,2)\) the family of countable \(\mathcal{A}\)-coverings of \(A\)
+\[
+\mathcal{C}(A):=\{(A_{j})_{j\in \Bbb{N}}\subseteq \mathcal{A} : \bigcup _{j\in \Bbb{N}}A_{j} \supseteq A\}
+\]
+and set
+\[
+\mu ^*(A):=\text{inf}\bigg\{\sum _{j\in \Bbb{N}}\mu (S_{j}) : (S_{j})_{j\in \Bbb{N}}\in \mathcal{C}(A)\bigg\}.
+\]
+
+Define \(\mathcal{A}^*:=\{A\subseteq [0,2): \mu ^*(B)=\mu ^*(B\cap A)+\mu ^*(B-A) \quad \forall B\subseteq X \}\)
+
+Show that
+
+\begin{enumerate}
+  \item Find \(\mu ^*(a,b),\mu ^*\{a\}\)
+  \item \((0,1),\{0\}\not\in \mathcal{A}^*\)
+\end{enumerate}
+
+\end{thm}
+
+Note that in T6.1 it is proven that:
+
+\begin{itemize}
+  \item \(\mathcal{A}\subseteq \mathcal{A}^*\)
+  \item \(\mu ^*(A)=\mu (A)  \quad \forall A\in \mathcal{A}\)
+  \item \(\mathcal{A}^*\) is a \(\sigma \)-algebra and \(\mu ^*\) is a measure on \(([0,2),\mathcal{A}^*)\)
+\end{itemize}
+
+\begin{proof}
+
+\begin{enumerate}
+  \item We have
+\begin{align*}
+\mu ^*(a,b)=\mu [0,1) \quad &\text{if } a,b\in [0,1)\\
+\mu ^*(a,b)=\mu [1,2) \quad &\text{if } a,b\in [1,2)\\
+\mu ^*(a,b)=\mu [0,2) \quad &\text{if } a\in [0,1),b\in [1,2)
+\end{align*}
+In the case of a singleton \(\{a\}\) the best posibble cover is always either \([0,1)\) or \([1,2)\) so that \(\mu ^*\{a\}=1/2.\)
+  \item Suppose that \((0,1)\in \mathcal{A}^*\) then we would have that \[\{0\}=[0,1)-(0,1)\in \mathcal{A}^*.\] But this gives
+\[
+\frac{1}{2}=\mu ^*[0,1)=\mu ^*(0,1)+\mu ^*\{0\}=1
+\]
+
+\end{enumerate}
+
+\end{proof}
+

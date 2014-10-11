@@ -1,0 +1,101 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{makeidx}
+
+\makeindex
+\let\oldemph\emph
+\renewcommand{\emph}[1]{\index{#1}\oldemph{#1}}
+
+\usepackage{amsmath, amssymb, amsthm}
+
+
+
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Imm}{Im}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\op}{op}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Irr}{Irr}
+
+\DeclareMathOperator{\Id}{Id}
+\usepackage{hyperref}
+
+
+
+\newtheoremstyle{theorem}% name
+  {}%         Space above, empty = `usual value'
+  {}%         Space below
+  {\itshape}% Body font
+  {}%         Indent amount (empty = no indent, \parindent = para indent)
+  {\bfseries}% Thm head font
+  {.}%        Punctuation after thm head
+  {\newline}% Space after thm head: \newline = linebreak
+     {\def\temp{#3}\ifx\temp\empty\thmnumber{#2 }\thmname{#1}\else\thmnumber{#2}\thmnote{ #3}\fi}%         Head spec
+
+%         Thm head spec
+\theoremstyle{theorem}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+
+\swapnumbers
+\newtheoremstyle{definition}% name
+  {}%         Space above, empty = `usual value'
+  {}%         Space below
+  {}% Body font
+  {}%         Indent amount (empty = no indent, \parindent = para indent)
+  {\bfseries}% Thm head font
+  {.}%        Punctuation after thm head
+  {\newline}% Space after thm head: \newline = linebreak
+  {}%         Thm head spec
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{example}[thm]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[thm]{Remark}
+
+\usepackage{parskip}
+
+\makeatletter
+\renewenvironment{proof}[1][\proofname] {\par\pushQED{\qed}\normalfont\topsep6\p@\@plus6\p@\relax\trivlist\item[\hskip\labelsep\bfseries#1\@addpunct{.}]\mbox{}\\*}{\popQED\endtrivlist\@endpefalse}
+\makeatother
+
+%Fix if theorem starts with a list
+\makeatletter
+\def\itemfix{%
+\if@inlabel
+ \noindent \par\nobreak\vskip-\baselineskip\hrule\@height\z@
+\fi}
+
+\let\olditemize\itemize
+\def\itemize{\itemfix\olditemize}
+\makeatother
+
+\makeatletter
+\def\enumfix{%
+\if@inlabel
+ \noindent \par\nobreak\vskip-\baselineskip\hrule\@height\z@
+\fi}
+\let\oldenumerate\enumerate
+\def\enumerate{\enumfix\oldenumerate}
+
+
+
+\begin{document}
+
+\tableofcontents
+\clearpage
+
+\include{Chapter3}
+\include{9-10-2014}
+\include{10-10-2014}
+\include{11-10-2014}
+\printindex
+
+
+
+\end{document}
