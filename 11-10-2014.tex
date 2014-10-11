@@ -106,3 +106,139 @@ Let \(T:(X,\mathcal{A})\rightarrow (X',\mathcal{A}')\) be an \(\mathcal{A}/\math
 \(u:X\rightarrow \bar{\Bbb{R}}\) is \(\sigma (T)/\bar{\mathcal{B}}\)-measurable.
 \end{thm}
 
+\begin{prop}
+Let \((X,\mathcal{A})\) be a measurable space. We define the indicator function:
+\[
+1_A : X\rightarrow  \Bbb{R} : x\in A \mapsto 1 \quad  x\in X-A\mapsto 0
+\]
+Show that the indicator function is measurable if, and only if, \(A\in \mathcal{A}.\)
+\end{prop}
+
+\begin{proof}
+To show that \(1_A\) is measurable, it suffices to show that
+\[
+1_A^{-1}(a,\infty )\in \mathcal{A}.
+\]
+
+Note that
+\[
+1_A^{-1}(a,\infty )=\{x\in X:1_A(x)\in (a,\infty )\}=\{1_A >a\}
+\]
+If \(a\geq 1\), then \(1_A^{-1}(a,\infty )=\varnothing \).
+
+If \(a\in [0,1)\), then  \(1_A^{-1}(a,\infty )=A.\)
+
+If \(a<0\), then \(1_A^{-1}(a,\infty )=X\).
+\end{proof}
+
+\begin{prop}
+Let \(A_{1},\ldots ,A_M\in \mathcal{A}\) be mutally disjoint sets and \(y_{1},\ldots ,y_M\in \Bbb{R}\). Then the function
+\[
+g: X\rightarrow \Bbb{R} : x\mapsto \sum _{j=1}^M y_{j}1_{A_{j}}(x)
+\]
+is measurable.
+\end{prop}
+
+\begin{proof}
+To show that \(g\) is measurable it suffices to show that
+\[
+\{g>a\}\in \mathcal{A}
+\]
+i.e.
+\[
+\Big\{x\in X:\sum _{j=1}^M y_{j}1_{A_{j}}(x)>a\Big\}=\bigcup _{j:y_{j}>a}A_{j}\in \mathcal{A}.
+\]
+\end{proof}
+
+\begin{thm}[Problem 8.3i]
+Let \((X,\mathcal{A})\) be a measurable space. Let \(f,g : X\rightarrow \Bbb{R}\) be measurable functions. Show that for every \(A\in \mathcal{A}\) the functions \(h(x):=f(x)\) if \(x\in A\) and $h(x):=g(x)$, if \(x\not\in A\), is measurable.
+\end{thm}
+
+\begin{proof}
+Note that
+\[
+h(x):=1_A(x)f(x)+1_{A^c}(x)g(x).
+\]
+
+And remember that sums and products of measurable functions are again measurable.
+\end{proof}
+
+\begin{thm}[Problem 8.3ii]
+Let \((f_{j})_{j\in \Bbb{N}}\) be a sequence of measurable functions and let \((A_{j})_{j\in \Bbb{N}}\subseteq \mathcal{A}\) such that \(\bigcup _{j\in \Bbb{N}}A_{j}=X.\) Suppose that \(f_{j}|_{A_{j}\cap A_{k}}=f_{k}|_{A_{j}\cap A_{k}}\) for all \(j,k\in \Bbb{N}\) and set \(f(x):=f_{j}(x)\) if \(x\in A_{j}\). Show that \(f:X\rightarrow \Bbb{R}\) is measurable.<br />
+\end{thm}
+
+\begin{proof}
+We have that:
+\[
+f^{-1}(B)=\bigcup _{j\in \Bbb{N}}A_{j}\cap f^{-1}(B)=\bigcup _{j\in \Bbb{N}}A_{j}\cap f_{j}^{-1}(B)\in \mathcal{A}
+\]
+\end{proof}
+
+\begin{thm}[Problem 8.4]
+Let \((X,\mathcal{A})\) be a measurable space and let \(\mathcal{B}\subset \mathcal{A}\) be a sub-\(\sigma \)-algebra. Show that \(\mathcal{M}(\mathcal{B})\subset \mathcal{M}(\mathcal{A}).\)
+\end{thm}
+
+\begin{proof}
+To show that
+\[
+\mathcal{M}(\mathcal{B})\subset \mathcal{M}(\mathcal{A})
+\]
+it suffices to show there exists a \(\mathcal{A}\)-measurable function that is not \(\mathcal{B}\)-measurable. By hypothesis, we have an element \(A\in \mathcal{A}\), that is not in \(\mathcal{B}\), i.e. \(A\not\in \mathcal{B}\). Since \(1_A\) is \(\mathcal{B}\)-measurable if, and only if, \(B\in \mathcal{B}\), we have find the \(\mathcal{A}\)-measurable function where we where looking for.
+\end{proof}
+
+\begin{thm}
+Let \(u:\Bbb{R}\rightarrow \Bbb{R}\) be differentiable. Explain why \(u\) and \(u'=du/dx\) are measurable.
+\end{thm}
+
+\begin{proof}
+If \(u\) is differentiable, it is continuous, hence measurable. Since \(u'\) exists, we can write it in the form
+\[
+u'(x)=\lim_{k\rightarrow \infty } \frac{u(x+1/k)-u(x)}{1/k}
+\]
+i.e. as limit of measurable functions. Thus, \(u'\) is also measurable.
+\end{proof}
+
+\begin{thm}[Problem 8.17]
+Show that the measurability of \(|u|\) does not, in general, imply the measurability of \(u\).
+\end{thm}
+
+\begin{proof}
+Let \(A\subseteq \Bbb{R}\) be such that \(A\not\in \mathcal{B}\). Then it is clear that
+\[
+u(x):=1_A(x)-1_{A^c}(x)
+\]
+is not measurable. Take
+\[
+\{u=1\}=A\not\in \mathcal{A}.
+\]
+But \(|u(x)|=1\), which is a continuous function and therefore measurable.
+
+\end{proof}
+
+\begin{thm}[Problem 8.14]
+Consider \((\Bbb{R},\mathcal{B})\) and \(u:\Bbb{R}\rightarrow \Bbb{R}\). Show that \(\{x\}\in \sigma (u)\) for all \(x\in \Bbb{R}\) if, and only if, \(u\) is injective.
+\end{thm}
+
+\begin{proof}
+To show that \(u\) is injective, it suffices to assume $x,y\in \Bbb{R}$ and show that
+\[
+u(x)=u(y)\Longrightarrow x=y.
+\]
+Showing that is equivalent with showing that
+\[
+|\{u=u(x_{0})\}|=1.
+\]
+We surely have that \(\{x_{0}\}\subseteq \{u=u(x_{0})\}\). And note that
+\[
+\{x_{0}\}\in \sigma (u)=\sigma (u^{-1}(\mathcal{B}))
+\]
+just means that \(\{x_{0}\}=u^{-1}(B)\) for some $B\in \mathcal{B}$.
+\end{proof}
+
+\begin{proof}
+Assume that \(u\) is injective,. This means that every point in the range \(u(\Bbb{R})\) comes exactly from unique defined \(x\in \Bbb{R}\). This can be expressed by saying that \(\{x\}=u^{-1}(\{u(x)\})=\{u(x)\}.\) But then
+\[
+\{x\}\in \sigma (u)=\sigma (u^{-1}(\mathcal{B})).
+\]
+\end{proof}
+
