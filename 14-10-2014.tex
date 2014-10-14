@@ -1,0 +1,283 @@
+\section{14-10-2014}
+\subsection{Markov Chains 1.4}
+\begin{defn}
+A random variable \(T:\Omega \rightarrow \{0,1,2,\ldots ,\infty \}\) is called a \emph{stopping time} if the event \(\{T=n\}\) depends only on \(X_{0},X_{1},\ldots X_{n}\) for \(n=0,1,2,\ldots \). Intuitively, by watching the process, you know at the time when \(T\) occurs. If asked to stop at \(T\), you know when to stop.
+\end{defn}
+
+\begin{prop}
+The first passage time
+\[
+T_{j}=\inf\{n\geq 1:X_{n}=j\}
+\]
+is a stopping time.
+\end{prop}
+
+\begin{proof}
+To show that \(T_{j}\) is a stopping time, we have to show that
+\[
+\{T_{j}=n\}
+\]
+depends only on \(X_{0},\ldots ,X_{n}\).
+
+This follows from
+\[
+\{T_{j}=n\}=\{X_{1}\neq j,\ldots X_{n-1}\neq j,X_{n}=j\}
+\]
+\end{proof}
+
+\begin{prop}
+The first hitting time
+\[
+H^A=\inf\{n\geq 0:X_{n}\in A\}
+\]
+is a stopping time.
+\end{prop}
+
+\begin{proof}
+To show that \(H^A\) is a stopping time, we have to show that
+\[
+\{H^A=n\}
+\]
+depends only on \(X_{0},\ldots ,X_{n}\).
+This follows from
+\[
+\{H^A=n\}=\{X_{0}\not\in A,\ldots ,X_{n-1}\not\in A,X_{n}\in A\}
+\]
+\end{proof}
+
+\begin{prop}
+The last exit time
+\[
+L^A=\sup\{n\geq 0:X_{n}\in A\}
+\]
+is not in general a stopping time.
+\end{prop}
+
+\begin{proof}
+The event \(\{L^A=n\}\) depends on whether \((X_{n+m})_{m\geq 0}\) visits \(A\) or not. So we don't have a stopping time.
+\end{proof}
+
+\begin{thm}[Theorem 1.4.2 (Strong Markov property)]
+Let \((X_{n})_{n\geq 0}\) be Markov\((\lambda ,P)\) and let \(T\) be a stopping time of \((X_{n})_{n\geq 0}\). Then, conditional on \(T<\infty \) and \(X_T=i,(X_{T+n})_{n\geq 0}\) is Markov\((\delta _{i},P)\) and independent of \(X_{0},\ldots ,X_T\).
+\end{thm}
+
+We now consider an application of the strong Markov property to a Makrov chain \((X_{n})_{n\geq 0}\) observed only at certain times. In the first instance suppose that \(J\) is some subset of the state space \(I\) and that we observe the chain only when it takes values in \(J\).
+
+\begin{prop}
+Let \((X_{n})_{n\geq 0}\) be a markov chain. Consider
+\[
+T_{0}=\inf\{n\geq 0:X_{n}\in J\}
+\]
+and, for \(m=0,1,2,\ldots \)
+\[
+T_{m+1}=\inf\{n>T_{m}:X_{n}\in J\}.
+\]
+Assume \(P(T_{m}<\infty )=1\) for all \(m\). Show that \(Y_{m}=X_{T_{m}}\) is a markov chain and compute its transition matrix in terms of the transition matrix $P$ of $X_{n}$.
+\end{prop}
+\newpage
+\begin{proof}
+Showing that \((Y_{m})\) is a markov chain is equivalent with showing that
+\begin{align*}
+\Bbb{P}(&Y_{m+1}=i_{m+1} | Y_{0}=i_{1},\ldots ,Y_{m}=i_{m} ) \\
+&=\Bbb{P}(Y_{m+1}=i_{m+1} | Y_{m}=i_{m})
+\end{align*}
+which in turn is equivalent with showing that
+\begin{align*}
+\Bbb{P}(&X_{T_{m+1}}=i_{m+1} | X_{T_{0}} =i_{1},\ldots ,X_{T_{m}}=i_{m} ) \\
+&=\Bbb{P}(X_{T_{m+1}}=i_{m+1} | X_{T_{m}}=i_{m} ).
+\end{align*}
+The Markov property gives that \((X_{T_{m}+n})_{n\geq 0}\) is a markov chain and independent of $X_{0},\ldots ,X_{T_{m}}$, and so surely independent of \(X_{T_{0}} =i_{1},\ldots ,X_{T_{m-1}}\). Now \(X_{T_{m+1}}=X_{T_{m}+n}\) for some $n$. So the equality follows.
+
+Now the question is, strating from $i\in J$ what is the chance that we hit \(j\in J\) the first time we hit \(J\)? Call this chance \(h_{i}^j\) Well this is chance is surely greater than \(p_{ij}\) as there is also a chance that we first get outside of \(J\) and then next time hit \(J\), and so on. With a similar reasoning as in Theorem 1.3.2 we can show that for \(j\in J\) the vector \((h_{i}^j : i\in I)\) is the minimal non-negative solution to
+\[
+h_{i}^j=p_{ij}+\sum _{k\not\in J}p_{ik}h_{k}^j.
+\]
+
+\end{proof}
+
+\begin{prop}
+Let \((X_{n})_{n\geq 0}\) be a markov chain. Consider
+\[
+T_{0}=\inf\{n\geq 0:X_{n}\neq X_{0}\}
+\]
+and, for \(m=0,1,2,\ldots \)
+\[
+T_{m+1}=\inf\{n\geq T_{m}:X_{n}\neq X_{T_{m}}\}.
+\]
+Assume \(\Bbb{P}(T_{m}<\infty )=1\) for all \(m\). Show that \(Y_{m}=X_{T_{m}}\) is a markov chain and compute its transition matrix in terms of the transition matrix $P$ of $X_{n}$.
+\end{prop}
+
+\begin{proof}
+Showing that \((Y_{m})\) is a markov chain is equivalent with showing that
+\begin{align*}
+\Bbb{P}(&Y_{m+1}=i_{m+1} | Y_{0}=i_{1},\ldots ,Y_{m}=i_{m} ) \\
+&=\Bbb{P}(Y_{m+1}=i_{m+1} | Y_{m}=i_{m})
+\end{align*}
+which in turn is equivalent with showing that
+\begin{align*}
+\Bbb{P}(&X_{T_{m+1}}=i_{m+1} | X_{T_{0}} =i_{1},\ldots ,X_{T_{m}}=i_{m} ) \\
+&=\Bbb{P}(X_{T_{m+1}}=i_{m+1} | X_{T_{m}}=i_{m} ).
+\end{align*}
+The Markov property gives that \((X_{T_{m}+n})_{n\geq 0}\) is a markov chain and independent of $X_{0},\ldots ,X_{T_{m}}$, and so surely independent of \(X_{T_{0}} =i_{1},\ldots ,X_{T_{m-1}}\). Now \(X_{T_{m+1}}=X_{T_{m}+n}\) for some $n$. So the equality follows.
+
+Now, the question is, starting from \(i\) what is the chance to go to \(j\) now, if we set the chance \(p_{ii}=0\). Call this chance \(\tilde{p}_{ij}\). We have
+\[
+\tilde{p}_{ij}=\frac{p_{ij}}{\sum \limits_{k\neq i}p_{ik}}
+\]
+\end{proof}
+\subsection{Markov Chains 1.5}
+\begin{defn}
+Let \((X_{n})_{n\geq 0}\) be a Markov chain with transition matrix \(P\). We say that a state \(i\) is \emph{recurrent} if
+\[
+\Bbb{P}_{i}(X_{n}=i \text{ for infinitely many }n)=1.
+\]
+A recurrent state is a state \(i\) where you keep coming back.
+\end{defn}
+
+\begin{defn}
+We say that a state \(i\) is \emph{transient} if
+\[
+\Bbb{P}_{i}(X_{n}=i \text{ for infinitely many }n)=0.
+\]
+A transient state is a state \(i\) which you eventually leave for ever.
+\end{defn}
+
+\begin{thm}
+A state \(i\) is either recurrent or transient.
+\end{thm}
+
+\begin{defn}
+Recall that the first passage time to a state \(i\) is the random variable \(T_{i}\) defined by
+\[
+T_{i}(\omega )=\inf\{n\geq 1 : X_{n}(\omega )=i\}
+\]
+where \(\inf \varnothing =\infty .\) We now define inductively the \emph{rth passage time} \(T_{i}^{(r)}\) to state \(i\) by
+\[
+T_{i}^{(0)}(\omega )=0 \quad T_{i}^{(1)}(\omega )=T_{i}(\omega )
+\]
+and for \(r=0,1,2,\ldots ,\)
+\[
+T_{i}^{(r+1)}(\omega )=\inf\{n\geq T_{i}^{(r)}(\omega )+1 : X_{n}(\omega )=i\}.
+\]
+The length of the rth excursion to \(i\) is then
+\begin{align*}
+S_{i}^{(r)}=\begin{cases}T_{i}^{(r)}-T_{i}^{(r-1)} &\text{if }T_{i}^{(r-1)}<\infty  \\0 & \text{otherwise}\end{cases}.
+\end{align*}
+\end{defn}
+
+\begin{thm}[Lemma 1.5.1]
+For \(r=2,3,\ldots ,\) conditional on \(T_{i}^{(r-1)}<\infty \), \(S_{i}^{(r)}\) is independent of
+\(\{X_{m}:m\leq T_{i}^{(r-1)}\}\) and
+\[
+\Bbb{P}(S_{i}^{(r)}=n|T_{i}^{(r-1)}<\infty )=\Bbb{P}_{i}(T_{i}=n)
+\]
+\end{thm}
+
+\begin{defn}
+The \emph{number of visits} to \(i\) is denoted by
+\[
+V_{i}=\sum _{n=0}^\infty 1_{\{X_{n}=i\}}.
+\]
+
+\end{defn}
+
+\begin{thm}
+\[
+E_{i}(V_{i})=\sum _{n=0}^\infty p_{ii}^{(n)}
+\]
+\end{thm}
+
+\begin{proof}
+We have
+\begin{align*}
+E_{i}(V_{i}) &=\sum _{n=0}^\infty E_{i}(1_{\{X_{n}=i\}}) \\
+&=\sum _{n=0}^\infty  \Bbb{P}_{i}(X_{n}=i) \\
+&=\sum _{n=0}^\infty p_{ii}^{(n)} 
+\end{align*}
+\end{proof}
+
+\begin{defn}
+The \emph{return probability} of \(i\) is denoted by
+\[
+f_{i}=\Bbb{P}_{i}(T_{i}<\infty ).
+\]
+\end{defn}
+
+\begin{thm}[Lemma 1.5.2]
+For \(r=0,1,2,\ldots ,\) we have \(\Bbb{P}_{i}(V_{i}>r)=f_{i}^r.\)
+\end{thm}
+
+\begin{proof}
+Showing that
+\[
+\Bbb{P}_{i}(V_{i}>r)=f_{i}^r
+\]
+is equivalent with showing that
+\[
+\Bbb{P}_{i}(V_{i}>r)=\Bbb{P}_{i}(T_{i}<\infty )^r
+\]
+which in turn is equivalent with
+\[
+\Bbb{P}_{i}(T_{i}^{(r)}<\infty )=\Bbb{P}_{i}(T_{i}<\infty )^r.
+\]
+This last statement can be proven by induction.
+\end{proof}
+
+\begin{thm}[Theorem 1.5.3]
+The following dichotomy holds:
+
+\begin{enumerate}
+  \item if \(\Bbb{P}_{i}(T_{i}<\infty )=1,\) then \(i\) is recurrent and \(\sum _{n=0}^\infty p_{ii}^{(n)}=\infty \)
+  \item if \(\Bbb{P}_{i}(T_{i}<\infty )<1,\) then \(i\) is transient and \(\sum _{n=0}^\infty  p_{ii}^{(n)}<\infty \)
+\end{enumerate}
+\end{thm}
+
+
+\begin{thm}[Theorem 1.5.4]
+Let \(C\) be a communicating class. Then either all states in \(C\) are transient or all are recurrent.
+\end{thm}
+
+\begin{thm}[Theorem 1.5.5]
+Every recurrent class is closed. And the contrapositive: \\
+Every class that is not closed, is transient. 
+\end{thm}
+
+\begin{thm}[Theorem 1.5.6]
+Every finite closed class is recurrent.
+And the contrapositive: \\
+Every transient class is either infinite or not closed.. 
+\end{thm}
+
+\begin{thm}[Theorem 1.5.7]
+Suppose \(P\) is irreducible and recurrent. Then for all \(j\in I\) we have
+\[
+\Bbb{P}(T_{j}<\infty )=1.
+\]
+\end{thm}
+
+
+\begin{thm}[Exercise 1.5.1]
+Identify the recurrent and transient states of the Markov chain with the following transition matrix:
+\begin{gather*}
+P=
+\begin{pmatrix}\tfrac{1}{2}&0&0&0&\tfrac{1}{2} \\
+0&\tfrac{1}{2}&0&\tfrac{1}{2}&0 \\
+0&0&1&0&0\\
+0&\tfrac{1}{4}&\tfrac{1}{4}&\tfrac{1}{4}&\tfrac{1}{4} \\
+\tfrac{1}{2}& 0&0&0&\tfrac{1}{2}\end{pmatrix}
+\end{gather*}
+\end{thm}
+
+The solution is obvious from the diagram:
+
+\begin{tikzpicture}
+\SetGraphUnit{1}
+\Vertices{circle}{1,2,3,4,5}
+\Edges(1,5,1)
+\Edges(4,2,4,5)
+\Edges(4,3)
+\end{tikzpicture}
+
+ The classes being \(\{1,5\}, \{2,4\}\) and \(\{3\}\). With  \(\{1,5\}\) closed and finite, and therefore recurrent. The class \(\{3\}\) is absorbing, so closed and finite, and therefore recurrent. The other class $\{2,4\}$ is not closed, and therefore, not recurrent. So we have that $\{2,4\}$ is transient.
+
+
