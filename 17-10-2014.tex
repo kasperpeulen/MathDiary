@@ -1,0 +1,388 @@
+\section{17-10-2014}
+\subsection{Representation Theory Reader Week 39}
+
+\begin{thm}[Exercise 1]
+Let \(V\) be an \(A\)-module. Suppose that \(e_{1},\ldots ,e_{n}\) is a complete set of orthogonal idempotents of \(A'\). Show that \(V=\oplus _{i=1}^ne_{i}V\) is a decomposition of \(V\) as direct sum of \(A\)-submodules.
+\end{thm}
+
+\begin{proof}
+To show that \(V=\oplus _{i=1}^ne_{i}V\) is a decomposition of \(V\) as direct sum of \(A\)-submodules, it suffices to show that
+
+\begin{enumerate}
+  \item \(e_{i}V\cap e_{j}V=0  \qquad \forall i,j.\)
+  \item \(V\subseteq \bigoplus_{i=1}^ne_{i}V\)
+\end{enumerate}
+
+Note that 1) is equivalent with
+\[
+v\in \I(e_{i})\cap \I(e_{j})\  \Longrightarrow \  v=0.
+\]
+Assume that \(v\in \I(e_{i})\cap \I(e_{j})\). Then \(v=e_{i}(v_{i})=e_{j}(v_{j})\). And so \(e_{i}(v)=v\) but also \(e_{i}(v)=0.\) So \(v=0\).
+
+We also have that
+\[
+1=e_{1}+\cdots +e_{n}
+\]
+and therefore
+\[
+v=e_{1}v+\cdots e_{n}v \qquad \forall v\in V.
+\]
+Which shows that
+\[
+V\subseteq \bigoplus_{i=1}^ne_{i}V.
+\]
+\end{proof}
+\newpage
+
+\begin{thm}
+Let \(U,V\) be finite dimensional \(k\)-vector spaces with direct sum decompositions
+\(U=\oplus _{j=1}^nU_{j}\) and \(V=\oplus _{i=1}^mV_{i}\), and with corresponding complete sets of orthogonal idempotents \(e_{j}\in \End_{k}(U)\) and \(f_{i}\in \End_{k}(V)\). We have a \(k\)-linear isomorphism \(M\) between \(\Hom_{k}(U,V)\) and the \(k\)-vector space consisting of \(m\times n\) matrices
+\begin{gather*}
+\begin{pmatrix}\phi _{1,1}&\cdots &\phi _{1,n}\\
+\vdots &&\vdots \\
+\phi _{m,1}&\cdots &\phi _{m,n}\end{pmatrix}.
+\end{gather*}
+The isomorphism \(M\) is defined by \(\phi \rightarrow (\phi _{i,j})\) where \(\phi \in \Hom_{k}(U,V)\) and \(\phi _{i,j}\in \Hom_{k}(U_{j},V_{i})\) such that \(\phi _{i,j}=f_{i}\phi |_{U_{j}}\).
+
+Show that the matrix \(M(\phi )=(\phi _{i,j})\) is characterized by its property that if we decompose \(u=\sum _{j=1}^n u_{j}\in U\) and \(\phi (u)=\sum _{i=1}^m\phi (u)_{i}\) with \(\phi (u)_{i}\in V_{i}\) we have:
+\begin{gather*}
+\begin{pmatrix}\phi (u)_{1} \\ \vdots  \\ \phi (u)_{m}\end{pmatrix}=\begin{pmatrix}\phi _{1,1}&\cdots &\phi _{1,n}\\
+\vdots &&\vdots \\
+\phi _{m,1}&\cdots &\phi _{m,n}\end{pmatrix}
+\begin{pmatrix}u_{1}\\\vdots \\u_{n}\end{pmatrix}
+\end{gather*}
+In particular, if also \(W=\oplus _{l=1}^p\) is a direct sum of finite dimensional \(k\)-modules, and if \(\psi \in \Hom_{k}(V,W)\), then \(M(\psi \circ \phi )=M(\psi )\circ M(\phi ).\) Also notice that \(M(\text{id}_V)\) is the \(n\times n\) identity matrix with \(\text{id}_{V_{i}}\) in the ith diagonal position and \(0\) of the diogonal.
+\end{thm}
+
+\begin{prop}
+Let \(U,V\) be finite dimensional \(A\)-modules with direct sum decompositions \(U=\oplus _{j=1}^nU_{j}\) and \(V=\oplus _{i=1}^mV_{i}\) as \(A\)-modules, with corresponding complete sets of ortogonal idempotents \(e_{j}\in \End_A(U)\) and \(f_{i}\in \End_A(V)\). Given \(\phi \in \Hom_{k}(U,V)\) with \(M(\phi )=(\phi _{i,j})\) we have that
+
+\(\phi \in \Hom_A(U,V)\) if and only if \(\phi _{i,j}\in \Hom_A(U_{j},V_{i})\) for all \(i,j\)
+
+In other words, we can restrict the isomorphism \(M\) to \(A\)-linear maps.
+\end{prop}
+\newpage
+\begin{prop}
+Given \(U=\oplus _{j=1}^n U_{j}\), a direct sum decomposition of \(A\)-modules, \(M\) defines an isomorphism between \(A_U':=\End_A(U)\) and the algebra of \(n\times n\) matrices
+\begin{gather*}
+\begin{pmatrix}\phi _{1,1}&\cdots &\phi _{1,n} \\
+\vdots &&\vdots \\
+\phi _{n,1}&\cdots &\phi _{n,n}\end{pmatrix}
+\end{gather*}
+where \(\phi _{i,j}\in \Hom_A(U_{j},U_{i})\). In particular, if \(V\) is an \(A\)-module, and \(U=V\oplus \cdots \oplus V=V^n\), then \(M\) defines an isomorphism of \(A_U'=\End_A(V^n)\) with the algebra \(\Mat_{n}(A')\) of \(n\times n\) matrices with coefficients in \(A_V':=\End_A(V)\)
+\end{prop}
+
+\begin{defn}
+An \(A\)-module \(V\) is called \emph{semisimple} if \(V\) can be decomposed as direct sum of irreducible submodules.
+\end{defn}
+
+\begin{defn}
+Let \(\Irr(A)\) denote a complete set of representatives for the equivalence classes of irreducible representations of \(A\).
+\end{defn}
+
+
+\begin{prop}
+Let \(V=V_{1}\oplus \cdots \oplus V_{n}\) be a finite dimensional semisimple \(A\)-module. For each \(U\in \Irr(A)\) let
+\[
+n_U=\dim_{k}(\Hom_A(U,V))\in \Bbb{Z}_{\geq 0}.
+\]
+Show that \(n_U\) is equal to the number of \(V_{i}\) that are equivalent to \(U\).
+\end{prop}
+
+\begin{prop}
+Let \(V=V_{1}\oplus \cdots \oplus V_{n}\) be a finite dimensional semisimple \(A\)-module. For each \(U\in \Irr(A)\) let
+\[
+n_U:=\dim_{k}(\Hom_A(U,V)).
+\]
+Then \(\{U\in \Irr(A)\}=\{U_{1},\ldots ,U_{l}\}\) is a finite set and we have
+\begin{gather*}
+V=n_{1}U_{1}\oplus \ldots \oplus n_{l}U_{l} \\
+\End_A(V)\cong \Mat_{n_{1}}(k)\oplus \cdots \oplus \Mat_{n_{l}}(k)
+\end{gather*}
+\end{prop}
+
+\begin{prop}
+Let \(V=V_{1}\oplus \cdots \oplus V_{n}\) be a finite dimensional semisimple \(A\)-module. For each \(U\in \Irr(A)\) let
+\[
+n_U=\dim_{k}(\Hom_A(U,V))\in \Bbb{Z}_{\geq 0}.
+\]
+Show that \(n_U\) is equal to the number of \(V_{i}\) that are equivalent to \(U\).
+\end{prop}
+
+\begin{prop}
+Let \(V=V_{1}\oplus \cdots \oplus V_{n}\) be a finite dimensional semisimple \(A\)-module. For each \(U\in \Irr(A)\) let
+\[
+n_U:=\dim_{k}(\Hom_A(U,V)).
+\]
+Then \(\{U\in \Irr(A) : n_U\neq 0\}=\{U_{1},\ldots ,U_{l}\}\) is a finite set and we have
+\[
+V=n_{U_{1}}U_{1}\oplus \ldots \oplus n_{U_{l}}U_{l} 
+\]
+\end{prop}
+
+\begin{prop}
+Let \(V=V_{1}\oplus \cdots \oplus V_{n}\) be a finite dimensional semisimple \(A\)-module. For each \(U\in \Irr(A)\) let
+\[
+n_U:=\dim_{k}(\Hom_A(U,V)).
+\]
+
+Show that
+\[
+\End_A(V)\cong \Mat_{n_{1}}(k)\oplus \cdots \oplus \Mat_{n_{l}}(k)
+\]
+\end{prop}
+
+\begin{proof}
+Remember that
+\[
+\End_A(n_{U_{1}}U_{1}\oplus \ldots \oplus n_{U_{l}}U_{l})\cong \End_A(n_{U_{1}}U_{1})\oplus \cdots \oplus \End_A(n_{U_{n}}U_{n})
+\]
+Remember also that
+\[
+\End_A(n_{U_{1}}U_{1})=\Mat_{n_{U_{1}}}(\End_A(U_{1}))
+\]
+And lastly remember that if \(U_{1}\) is irreducible then \(\End_A(U_{1})\cong k\).
+\end{proof}
+
+\begin{defn}
+Let \(U\) be a subrepresentation of \(V\), a complement \(W\) of \(V\) is a subrepresentation such that \(V=U\oplus W.\)
+\end{defn}
+
+\begin{prop}
+Let \(A\) be a \(k\)-algebra. And let \(V\) be a finite dimensional \(A\)-module. The following are equivalent.
+
+\begin{enumerate}
+  \item \(V\) is a sum of irreducible submodules
+  \item \(V\) is semisimple, i.e. \(V\) is direct sum of irreducible submodules
+  \item Every submodule \(U\subseteq V\) admits a complement
+\end{enumerate}
+\end{prop}
+
+\begin{prop}
+Let \(V\) be a finite dimensional semisimple \(A\) module, and let \(U\subseteq V\) be a submodule. Then \(U\) is also semisimple.
+\end{prop}
+
+\begin{proof}
+Showing that \(U\) is semisimple, is equivalent with showing that any submodule \(U'\subseteq U\) admits a complement \(W'\subseteq U\).
+
+By hypothesis, we have that \(V\) is semisimple, and so \(U'\) as submodule of \(V\) has an complement \(W\subseteq V.\) Define now \(W'=U\cap W.\) We need to show that
+
+\begin{enumerate}
+  \item \(U'\cap W'=0\)
+  \item \(W'\) is a submodule of \(U\)
+  \item \(U'+W'=U\)
+\end{enumerate}
+
+Here is the proof:
+
+\begin{enumerate}
+  \item \(U'\cap W'=U'\cap (U\cap W)=U'\cap W=0\)
+  \item Showing that \(W'\) is a submodule of \(U\) is equivalent with showing that
+\[
+a.W'\subseteq W' \qquad \forall a\in A
+\]
+It suffices to assume \(a\in A\) and \(w'\in W'\) and show that
+\[
+a.w'\in W'
+\]
+which is equivalent with showing that
+\[
+a.w'\in U\cap W
+\]
+which is equivalent with showing that
+\[
+a.w'\in U \wedge  a.w'\in W.
+\]
+This holds as \(U\) and \(W\) are both \(A\)-submodules.
+  \item To show that \(U'+W'=U\) it suffices to assume \(u\in U\) and show that
+\[
+\exists u'\in U,w'\in W' : u=\; u'+w'.
+\]
+By hypothesis, we have that \(U'+W=V\) and as \(U\subseteq V\) we have that \(u=u'+w\) for some \(u'\in U',w\in W\). But then \(w\) must also be in \(U\), and therefore \(W'=U\cap W\).
+\end{enumerate}
+\end{proof}
+
+\begin{prop}
+Let \(V\) be a finite dimensional semisimple \(A\) module, and let \(U\subseteq V\) be a submodule. Then \(V/U\) is also semisimple. And \(V/U\) is the complement of \(U\).
+\end{prop}
+
+\begin{proof}
+Showing that \(V/U\) is semisimple is equivalent with showing that there exists a complement \(V/U\).
+
+As \(U\) is semisimple, it has a complement \(W\) so that
+\[
+V/U=(U\oplus W)/U\cong W
+\]
+Therefore \(V/U\) and \(U\) are complement of each other.
+\end{proof}
+
+\begin{thm}[Exercise 5]
+Let \(U\) be a submodule of a finite dimensional \(A\)-module. If \(U\) and \(V/U\) are semisimple, show that \(V\) is semisimple.
+\end{thm}
+
+\begin{proof}
+Showing that \(V\) is semisimple is equivalent with showing that \(V\) is the sum of irreducible submodules. We already shown that if \(U\) and \(V/U\) are semisimple then
+\[
+V=U\oplus V/U.
+\]
+But besides that, we also have that \(U\) and \(V/U\) are sums of irreducible submodules. And therefore \(V\) is also a sum of irreducible submodules. And therfore \(V\) is semisimple.
+\end{proof}
+
+\begin{defn}
+Let \(k\) be a field. A finite dimensional \(k\)-algebra \(A\) is called semisimple if all its finite dimensional representations are semisimple.
+\end{defn}
+
+\begin{prop}
+A finite dimensional \(k\)-algebra \(A\) is semisimple if and only if the left regular representation \((A,\rho )\) of \(A\) is semisimple.
+\end{prop}
+
+\begin{proof}
+If \(A\) is semisimple, then all its finite dimensional representations are semisimple. And as \(A\) is finite-dimensional, the regular representation is finite dimensional, and so \((A,\rho )\) is indeed semisimple.
+
+The other side seems difficult.
+\end{proof}
+\begin{thm}
+Let $A$ be a $k$-algebra for a field $k$. And let $V$ be a representation of $A$.
+Define  $A''=\operatorname{End}_{A'}(V)=\operatorname{End}_{\operatorname{End}_A(V)}(V)$. Show that $A''$ is a $k$-algebra.
+\end{thm}
+
+\begin{proof}
+To show that $A''$ is a $k$-algebra, it suffices to show that there exists a ring homomorphism
+$$
+f: k \rightarrow  Z(A'').
+$$
+To show that $f$ is a ringhomomorphism it suffices to show that
+
+\begin{enumerate}
+  \item $f(\alpha )\circ L=L\circ f(\alpha ) \qquad \forall \alpha \in k,\  \forall L\in \End_{A'}(V)$
+  \item $f(\alpha )+f(\beta )=f(\alpha +\beta ) \qquad \forall \alpha ,\beta \in k$
+  \item $f(\alpha )f(\beta )=f(\alpha \beta ) \qquad \forall \alpha ,\beta \in k$
+\end{enumerate}
+
+So I think first condition forces $f(\alpha )$ to be a scalar of $I_{A''}$. But what are the scalars in $A'=\End_A(V)$ ? So if understand correctly the scalars in $A$ are $\alpha 1_A$. So are the scalars in $A'$ then $\alpha 1_AI_{A'}$? If that is true if would define
+$$
+f:k \rightarrow Z(A'') : \alpha \mapsto \alpha 1_AI_{A'}I_{A''}
+$$
+
+\end{proof}
+
+
+\begin{prop}
+Show that \(V\) is an \(A''\) module.
+\end{prop}
+
+\begin{proof}
+To show that \(V\) is an \(A''\) module, it suffices to show that there exists a homomorphism of algebras
+\[
+\rho :A''\rightarrow \End_{k}(V).
+\]
+Note that any \(\phi \in A''\) is a linear endomorphism of \(V\) such that
+\[
+\phi (a'.v)=a'.\phi (v) \qquad \forall a'\in A',v\in V.
+\]
+But is \(\phi \) also in \(\End_{k}(V)\)? This holds as \(\alpha 1_A1_{A'}\) acts the same way as $\alpha \in k$ does. Thefore we can just choose the inclusion map for \(\rho \) which is an algebra homomorphism.
+\end{proof}
+
+\begin{prop}
+Show that \(\rho (A)\subseteq A''.\)
+\end{prop}
+
+\begin{proof}
+Showing that \(\rho (A)\subseteq A''\) is equivalent with showing that
+\[
+\phi _{a}=\rho (a)\in A'' \qquad \forall a\in A.
+\]
+Assume \(a\in A\). It suffices to show that \(\phi _{a}\) is \(A'\) linear, i.e.
+\[
+\phi _{a}(a'.v)=a'.\phi _{a}(v) \qquad \forall a'\in \End_A(V), \forall v\in V.
+\]
+Note that the action of \(A'\) on \(V\) is defined as \(a'.v=a'(v)\). So it suffices to show that
+\[
+\phi _{a}(a'(v))=a'(\phi _{a}(v))  \qquad \forall a'\in \End_A(V), \forall v\in V.
+\]
+This is equivalent with showing that<br />
+\[
+a.a'(v)=a'(a.v) \qquad \forall a'\in \End_A(V), \forall v\in V.
+\]
+This clearly holds.
+\end{proof}
+
+\begin{defn}
+We say that \(_AV\) has the double centralizer property if \(\rho (A)=A''\).
+\end{defn}
+
+\begin{thm}
+Let \(V\) be a finite dimensional semisimple \(A\)-module. Then \(V\) has the DCP.
+\end{thm}
+
+\begin{thm}
+Let \((V,\rho )\) be a finite dimensional simple \(A\)-module. Then \(\rho (A)=\End_{k}(V)\).
+\end{thm}
+
+\begin{thm}
+Let \((V,\rho )\) be a finite dimensional semisimple \(A\)-module such that
+\(V=V_{1}\oplus \cdots \oplus V_{n}\) is a direct sum of mutually inequivalent irreducible submodules. Then
+\[
+\rho (A)=\End_{k}(V_{1})\oplus \cdots \oplus \End_{k}(V_{n})
+\]
+is a direct sum of matrix algebras.
+\end{thm}
+
+\begin{thm}
+A finite dimensional \(k\)-algebra \(A\) has finitely many equivalence classes of irreducible \(A\)-modules, each of which is finite dimensional over \(k\). If we write \(\Irr(A)=\{(V_{1},\rho _{1}),\ldots ,(V_{n},\rho _{n})\}\) then
+\[
+\dim_{k}(A)\geq \sum _{i=1}^n\dim_{k}(V_{i})^2.
+\]
+\end{thm}
+
+\subsection{Representation Theory Reader Week 40}
+\begin{thm}
+Let \(k\) be a field, and let \(D\) be a finite dimensional \(k\)-division algebra. Then \(A:=\Mat_{n}(D)\) is a semisimple \(k\)-algebra with a single isomorphism class of simple \(A\)-modules, namely \(V=D^n\). We have \(A'=D^{\op}\).
+\end{thm}
+
+\begin{defn}
+A finite dimensiona \(k\)-algebra \(A\) is called simple if it is semisimple and if it has an single equivalance class of irreducible modules.
+\end{defn}
+
+\begin{thm}
+If a finite dimensional \(k\)-algebra \(A\) is simple, then the only two-sided ideals of \(A\) are \(0\) and \(A\).
+\end{thm}
+
+\begin{thm}
+A finite dimensional \(k\)-algebra of the form
+\[
+A:=\Mat_{d_{1}}(D_{1})\oplus \cdots \oplus \Mat_{d_{n}}(D_{n})
+\]
+with \(D_{i}\) a finite dimensional division algebra over \(k\), is a semisimple \(k\)-algebra with \(\Irr(A)=\{V_{1},\ldots ,V_{n}\}\) where \(V_{i}=D_{i}^{d_{i}}\) is equipped with the matrix multiplication action of the summand \(\Mat_{d_{i}}(D_{i})\).
+\end{thm}
+
+\begin{defn}
+Let \(A\) be a \(k\)-algebra (with \(k\) a field). Let \(W\) be an \(A\)-module. A \emph{subquotient} of \(W\) is an \(A\) module of the form \(V/U\) where \(U\subseteq V\subseteq W\) are submodules of \(W\). If \(V=V_{0}\supseteq V_{1}\supseteq \cdots \supseteq V_{n}:=0\) is a descending filtration of \(V\) by submodules, then we call the subquotients \(U_{i-1}:=V_{i-1}/V_{i}\) the consecutive subquotients of the filtration. Similarly, if \(0=V_{0}\subseteq V_{1}\subseteq \cdots \subseteq V_{n}:=V\) is an ascending filtration of \(V\) by submodules then the consecutive subquotients of the filtration are the subquotients \(U_{i}:=V_{i}/V_{i-1}\) for \(i=1,\ldots ,n\).
+\end{defn}
+
+\begin{prop}
+If \(V\) is finite dimensional, then there exists a finite descending filtration with irreducible consecutive subquotients. Similarly such finite ascending filtrations exists (in this cas the sequence of consecutive irreducible subquotients is called a Jordan-Holder sequence for \(V\)).
+\end{prop}
+
+\begin{defn}
+Let \(A\) be a finite dimensional \(k\) algebra. The radical \(Rad(A)\subseteq A\) of \(A\) is the intersection of the kernels of the irreducible representations of \(A\).
+\end{defn}
+
+\begin{defn}
+A two sided ideal \(I\subseteq A\) is called nilpotent if there exists an \(n\in \Bbb{N}\) such that \(I^n=0.\)
+\end{defn}
+
+\begin{prop}
+\(Rad(A)\) is the largest two-sided nilpotent ideal of \(A\).
+\end{prop}
+
+\begin{thm}
+Let \(A\) be a finite dimensional \(k\)-algebra. Then all irreducible \(A\)-modules factor thtough \(A/Rad(A)\) and \(A/Rad(A)\) is a finite dimensional semisimple \(k\)-algebra. In particular, if \(\Irr(A)=\{(V_{1},\rho _{1}),\ldots ,(V_{n},\rho _{n})\}\), then we have an isomorphism of \(k\)-algebras.
+\[
+\oplus _{i=1}^n \overline{\rho _{i}}:A/Rad(A) \rightarrow  \End_{k}(V_{1})\oplus \cdots \oplus \End_{k}(V_{n})
+\]
+\end{thm}
+
+
+
+
