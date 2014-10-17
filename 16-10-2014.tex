@@ -1,0 +1,388 @@
+\section{16-10-2014}
+\subsection{Markov Chains 1.8}
+
+\begin{prop}
+Give an example where the limit \(p_{ij}^{(n)}\) fails to converge.
+\end{prop}
+\begin{proof}
+Consider the two-state chain with transition matrix
+\begin{gather*}
+P=\begin{pmatrix}0&1\\ 1&0\end{pmatrix}.
+\end{gather*}
+
+Then \begin{gather*}
+P^2=\begin{pmatrix}0&1\\ 1&0\end{pmatrix}\begin{pmatrix}0&1\\ 1&0\end{pmatrix}=I.
+\end{gather*}
+So \(P^2=I\), so \(P^{2n}=I.\) And \(P^{2n+1}=P.\) Thus \(p_{ij}^{(n)}\) fails to converge for all \(i,j\).
+\end{proof}
+
+\begin{defn}
+We call a state \(i\) \emph{aperiodic} if \(p_{ii}^{(n)}>0\) for all sufficiently large \(n\).
+\end{defn}
+
+\begin{thm}
+A state \(i\) is aperiodic if and only if the set
+\(\{n\geq 0: p_{ii}^{(n)}>0\}\) has no common divisor other than \(1.\)
+\end{thm}
+
+\begin{thm}[Lemma 1.8.2]
+Suppose \(P\) is irreducible and has an aperiodic state \(i\). Then, for all states \(j\) and \(k\), \(p_{jk}^{(n)}>0\) for all sufficiently large \(n\). In particular, all states are aperiodic.
+\end{thm}
+
+\begin{thm}[Theorem 1.8.3]
+Let \(P\) be irreducible and aperiodic, and suppose that \(P\) has an invariant distribution \(\pi \). Let \(\lambda \) be any distribution. Suppose that
+\((X_{n})_{n\geq 0}\) is Markov\((\lambda ,P)\). Then for all \(j\)
+\[
+\Bbb{P}(X_{n}=j)\rightarrow \pi _{j} \qquad n\rightarrow \infty .
+\]
+In particular, for all \(i,j\)
+\[
+p_{ij}^{(n)}\rightarrow \pi _{j} \qquad n\rightarrow \infty 
+\]
+\end{thm}
+
+\subsection{Representation Theory Week 39}
+
+Let \(k\) be a field. And let \(A\) be a \(k\)-algebra.
+
+\begin{defn}
+An element \(a\in A\) is called an \emph{idempotent element} or an \emph{idempotent} if \(a^2=a.\)
+\end{defn}
+
+\begin{prop}
+We have that \(0\) and \(1\) are idempotents of \(A\).
+\end{prop}
+
+\begin{defn}
+Two idempotents \(a,b\in A\) are called \emph{orthogonal} if \(ab=0\) and \(ba=0\).
+\end{defn}
+
+\begin{prop}
+If \(a,b\) are orthogonal, then \(a+b\) is an idempotent.
+\end{prop}
+
+\begin{proof}
+Showing that \(a+b\) is idempotent, is equivalent with showing that
+\[
+(a+b)^2=a+b
+\]
+which is equivalent with showing that
+\[
+a+ab+ba+b=a+b
+\]
+which in turn is equivalent with showing that
+\[
+ab+ba=0.
+\]
+It suffices to show that
+\[
+ab=0=ba.
+\]
+By hypothesis we have that $a,b$ are orthogonal, and therefore our last statement follows by definition.
+\end{proof}
+
+\begin{defn}
+A set of mutually orthogonal idempotents \(a_{1},\ldots ,a_{n}\in A\) is called \emph{complete} if
+\[
+1=a_{1}+\cdots +a_{n}.
+\]
+\end{defn}
+
+\begin{defn}
+An idempotent \(a\in Z(A)\) is called a \emph{central idempotent} of \(A\).
+\end{defn}
+
+\begin{defn}
+A nonzero idempotent \(a\in A\) is called \emph{minimal} if any decomposition of \(a\) as a sum of two orthogonal idempotents \(a=b+c\) implies that \(b=0\) or \(c=0\).
+\end{defn}
+
+\begin{prop}
+If \(V\) is a \(k\)-vector space, then \(\End_{k}(V)\) is a \(k\)-algebra.
+\end{prop}
+
+\begin{proof}
+Showing that \(\End_{k}(V)\) is a \(k\)-algebra is equivalent with showing that there exists a ring homomorphism
+\[
+f: k \rightarrow  Z(\End_{k}(V))
+\]
+which is equivalent with showing that there exists a map \(f\) such that
+
+\begin{enumerate}
+  \item \(f(\alpha )L=Lf(\alpha ) \qquad \forall \alpha \in k,\forall L\in \End_{k}(V)\)
+  \item \(f(\alpha )f(\beta )=f(\alpha \beta ) \qquad \forall \alpha ,\beta \in k\)
+  \item \(f(\alpha )+f(\beta )=f(\alpha +\beta ) \qquad \forall \alpha ,\beta \in k\)
+\end{enumerate}
+
+Remember that the condition in 1) implies that \(f(\alpha )\) must be a scalar. Let's try the mapping \(f(\alpha )=\alpha I\) and rewrite our conditions:
+
+\begin{enumerate}
+  \item \(\alpha I\circ L=L\circ \alpha I \qquad \forall \alpha \in k,\forall L\in \End_{k}(V)\)
+  \item \(\alpha I\beta I=(\alpha \beta )I \qquad \forall \alpha ,\beta \in k\)
+  \item \((\alpha +\beta )I=\alpha I+\beta I \qquad \forall \alpha ,\beta \in k\)
+\end{enumerate}
+
+All those conditions hold directly.
+\end{proof}
+
+\begin{prop}
+If \(V\) is a representation of a \(k\)-algebra \(A\), then \(\End_A(V)\) is a \(k\)-algebra.
+\end{prop}
+
+\begin{proof}
+Showing that \(\End_A(V)\) is a \(k\)-algebra is equivalent with showing that there exists a ring homomorphism
+\[
+f: k \rightarrow  Z(\End_A(V))
+\]
+which is equivalent with showing that there exists a map \(f\) such that
+
+\begin{enumerate}
+  \item \(f(\alpha )L=Lf(\alpha ) \qquad \forall \alpha \in k,\forall L\in \End_A(V)\)
+  \item \(f(\alpha )f(\beta )=f(\alpha \beta ) \qquad \forall \alpha ,\beta \in k\)
+  \item \(f(\alpha )+f(\beta )=f(\alpha +\beta ) \qquad \forall \alpha ,\beta \in k\)
+\end{enumerate}
+
+Remember that the condition in 1) implies that \(f(\alpha )\) must be a scalar. Let's try the mapping \(f(\alpha )=\alpha .I\) and rewrite our conditions:
+
+\begin{enumerate}
+  \item \(\alpha .I\circ L=L\circ \alpha .I \qquad \forall \alpha \in k,\forall L\in \End_{k}(V)\)
+  \item \(\alpha .I\beta .I=(\alpha \beta ).I \qquad \forall \alpha ,\beta \in k\)
+  \item \((\alpha +\beta ).I=\alpha .I+\beta .I \qquad \forall \alpha ,\beta \in k\)
+\end{enumerate}
+
+All those conditions hold directly.
+\end{proof}
+
+\begin{prop}
+\[
+\End_A(V)\subseteq \End_{k}(V)
+\]
+\end{prop}
+
+\begin{proof}
+Showing that \(\End_A(V)\subseteq \End_{k}(V)\) is equivalent with showing that
+\[
+\phi \in \End_A(V) \Longrightarrow  \phi \in  \End_{k}(V).
+\]
+In other words, does \(A\)-linearity imply \(k\)-linearity ? This holds as \(k1\subseteq A\).
+\end{proof}
+
+\begin{prop}
+Given a representation \(V\) of \(A\). Then \(V\) is also a representation of \(\End_A(V)\)
+\end{prop}
+
+\begin{proof}
+To show that \(V\) is a representation of \(\End_A(V)\) it suffices to show that there exists a homomorphism of algebras:
+\[
+\rho :\End_A(V)\rightarrow \End_{k}(V).
+\]
+Remember that we have \(\End_A(V)\subseteq \End_{k}(V).\) So we can define \(\rho \) just as the inclusion map, which is clearly a homomorphism of algebras.
+\end{proof}
+
+\begin{defn}
+Given a representation \(V\) of \(A\). Then \(V\) as representation of \(A':=\End_A(V)\) is called the \emph{centralizer module}. If we need to distinguish the two module structures on \(V\), we will write \(_AV\) to denote \(V\) as a module over \(A\), and \(_{A'}V\) to denote the centralizer module.
+\end{defn}
+
+\begin{prop}
+The image of an idempotent element under an algebra homomorphism is again an idempotent element.
+\end{prop}
+
+\begin{proof}
+Let \(a\in A:a^2=a\). It suffices to show that
+\[
+f(a)^2=f(a).
+\]
+This holds as:
+\[
+f(a)^2=f(a)f(a)=f(a^2)=f(a).
+\]
+\end{proof}
+
+\begin{prop}
+For any idempotent \(e\in A\) we have that
+
+\begin{enumerate}
+  \item \(\rho (e)\in \End_{k}(V)\) is idempotent
+  \item if \(e\) is central, then \(\rho (e)\in \End_A(V)\)
+\end{enumerate}
+\end{prop}
+
+
+\begin{proof}
+
+\begin{enumerate}
+  \item The statement holds as \(\rho \) is an algebra homomorphism. And remember that the image of an idempotent element under an algebra homomorphism is again an idempotent element.
+  \item Showing that
+\[
+\rho (e)\in \End_A(V)
+\]
+is equivalent with showing that
+\[
+a.\rho (e)(v)=\rho (e)(a.v)
+\]
+which in turn is equivalent with
+\[
+\rho (a)(\rho (e)(v))=\rho (e)(\rho (a)(v)).
+\]
+In other notation
+\[
+\rho (a)\circ \rho (e)(v)=\rho (e)\circ \rho (a)(v).
+\]
+As \(\rho \) is an algebra homomorphism this is equivalent with
+\[
+\rho (ae)(v)=\rho (ea)(v).
+\]
+By hypothesis, we have that \(e\) is central, so \(ea=ae\) and therefore our last statement holds. 
+\end{enumerate}
+\end{proof}
+
+
+\begin{prop}
+For any \(x\in \End_A(V)\) the subspace \(\Ker(x)\subseteq V\) is a \(A\)-submodule.
+\end{prop}
+
+\begin{proof}
+Showing that \(\Ker(x)\) is a subrepresentation of \(V\) is equivalent with showing that
+\[
+a.\Ker(x)\subseteq \Ker(x) \qquad \forall a\in A.
+\]
+which is equivalent with showing that
+\[
+x(a.v)=0 \qquad \forall a\in A,\forall v\in \Ker(x)
+\]
+As \(x\in \End_A(V)\), this is equivalent with showing that
+\[
+a.x(v)=0 \qquad \forall a\in A,\forall v\in \Ker(x) \qquad \checkmark.
+\]
+\end{proof}
+
+\begin{prop}
+For any \(x\in \End_A(V)\) the subspace \(\I(x)\subseteq V\) is a \(A\)-submodule.
+\end{prop}
+
+\begin{proof}
+Showing that \(\I(x)\) is a subrepresentation is equivalent with showing that
+\[
+a.\I(x)\subseteq \I(x)
+\]
+which is equivalent with showing that
+\[
+\forall a\in A\  \forall v\in V\  \exists w\in W \qquad a.x(v)=x(w) 
+\]
+As \(x\in \End_A(V)\), this is equivalent with showing that
+\[
+\forall a\in A\forall v\in V\  \exists w\in W \qquad x(a.v)=x(w) \qquad \checkmark. 
+\]
+\end{proof}
+
+\begin{prop}
+If \(V=U\oplus W\) is a decomposition of \(_AV\) as direct sum of \(A\)-submodules. Then the projection \(e_U\) of \(V\) onto \(U\) along \(W\) and the projection \(e_W\) of \(V\) onto \(W\) along \(U\) satisfy:
+
+\begin{enumerate}
+  \item \(e_U,e_W\in \End_A(V)\)
+  \item \(e_U\) and \(e_W\) are orthogonal idempotent elements
+  \item \(1=e_U+e_W\)
+\end{enumerate}
+
+\end{prop}
+
+Remember that if \(V=U\oplus W\), then we can regard $U,W$ as subspaces of \(V\) such that \(U\cap W=0\) and for any \(v\in V\) we have that \(v=u+w\) where \(u\in U, w\in W\). And \(a.v=a.u+a.w\) where \(a.u\in U\)
+
+\begin{proof}[Proof of 1]
+To show that \(e_U\in \End_A(V)\) it suffices to show that
+\[
+a.e_U(v)= e_U(a.v) \qquad \forall a\in A,v\in V
+\]
+which is equivalent with showing that
+\[
+a.e_U(u+w)= e_U(a.(u+w)) \qquad \forall a\in A,u\in U,w\in W
+\]
+which is equivalent with showing that
+\[
+a.u= e_U(a.u+a.w) \qquad \forall a\in A,u\in U,w\in W.
+\]
+With holds as \(U,W\) are subrepresentations.
+\end{proof}
+
+\begin{proof}[Proof of 2]
+Showing that \(e_U\) is idempotent, is equivalent with showing that
+\[
+e_U\circ e_U=e_U
+\]
+which is equivalent with showing that
+\[
+e_U\circ e_U(v)=e_U(v) \qquad \forall v\in V
+\]
+which is equivalent with showing that
+\[
+e_U\circ e_U(u+w)=e_U(u+w) \qquad \forall u\in U,w\in W\qquad \checkmark.
+\]
+
+Showing that \(e_U\) and \(e_W\) are orthogonal is equivalent with showing that
+\[
+e_U\circ e_W=0 \qquad e_W\circ e_U=0
+\]
+which is equiavlent with showing that
+\[
+e_U\circ e_W(u+w)=0(u+w) \qquad e_W\circ e_U(u+w)=0(u+w) \qquad \forall u\in U,w\in W\qquad \checkmark.
+\]
+\end{proof}
+
+\begin{proof}[Proof of 3]
+Showing that
+\[
+e_U+e_W=1
+\]
+is equivalent with showing that
+\[
+e_U(u+w)+e_W(u+w)=1(u+w) \qquad \forall u\in U,w\in W \qquad \checkmark
+\]
+\end{proof}
+
+\begin{prop}
+If $e\in A'$ is an idempotent element then
+
+\begin{enumerate}
+  \item \(1-e\in A'\) idempotent
+  \item \(1=e+(1-e)\) is a decomposition as sum of orthogonal elements
+  \item \(V=eV\oplus (1-e)V\) is a decomposition of \(_AV\) as a direct sum of \(A\)-submodules
+\end{enumerate}
+\end{prop}
+
+
+\begin{proof}[Proof of 1]
+Showing that \(1-e\) is idempotent is equivalent with showing that
+\[
+(1-e)^2=1-e
+\]
+which is equivalent with showing that
+\[
+1-2e+e^2=1-e \qquad \checkmark.
+\]
+\end{proof}
+
+\begin{proof}[Proof of 2]
+To show that \(1=e+(1-e)\) is a decomposition of sum of orthogonal elements, it suffices to show that
+\[
+e(1-e)=0 \qquad (1-e)e=0.
+\]
+which is equivalent with showing that
+\[
+e-e^2=0. \qquad \checkmark
+\]
+\end{proof}
+
+\begin{proof}[Proof of 3]
+Since \(1=e+(1-e)\) is a decomposition as sum of orthogonal elements, we have that
+\[
+v=e(v)+(1-e)(v).
+\]
+Hence if \(v\in \I(e) \cap  \I(1-e)\) then
+\[
+v=v+v=2v.
+\]
+And then \(v=0\).
+\end{proof}
+
+\begin{thm}
+$_AV$ is an indecomposable module iff \(1\in A'\) is a minimal idempotent
+\end{thm}
