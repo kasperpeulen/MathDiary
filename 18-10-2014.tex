@@ -1,0 +1,227 @@
+\section{18-10-2014}
+\subsection{Representation Theory Reader Week 40}
+
+\begin{prop}
+Let \(A\) be simple. Show that \(A=\sum _J J\) where \(J\) runs over the set of minimal nonzero left ideals of \(A\).
+\end{prop}
+
+\begin{proof}
+As \(A\) is simple, we know that
+
+\begin{enumerate}
+  \item \(A\) is finite
+  \item The left regular representation \((A,\rho )\) of \(A\) is semisimple.
+  \item There is a single equivalance class of irreducible modules
+\end{enumerate}
+
+So 1) and 2) gives that \(A\) as representation is a finite sum of irreducible submodules \(A=\sum _{k=1}^nV_{k}\), and 3) gives that \(A=V_{1}^n\), where \(V_{1}\) is an irreducible submodule of the regular representation. And that is the same as a minimal nonzero left ideal \(J\).
+\end{proof}
+
+\begin{prop}
+Let \(I\subseteq A\) be minimal nonzero left ideal. Show that there exists an idempotent \(e_I\in \End_A(A)=A^{\op}\) such that \(I=e_I(A)=Ae_I\)
+\end{prop}
+
+\begin{proof}
+We have that \(A=I^n\) is a decomposition of \(A\) as direct sum of \(A\)-submodules. Then the projection \(e_I\) is an idempotent element in \(\End_A(A)\). So clearly \(e_I(A)=I\) But \(e_I\) can also be seen as an element of \(A^{\op}\) with the isomorphism
+\[
+f :A^{\op} \rightarrow  \End_{A} (A) : a \mapsto \big(\phi _{a} : A \rightarrow  A:b \mapsto b\cdot a\big)
+\]
+
+Clearly \(e_I=\phi _{i}\) for some \(i\in I\). So we have that \(e_I\) acts as $i\in A^{\op}$. And therefore \(Ae_{i}=I\) as well.
+\end{proof}
+\newpage
+\begin{thm}
+Let \(A\) be a finite dimenional \(k\)-algebra, and \(\Irr(A)=\{(V_{1},\rho _{1}),\ldots ,(V_{n},\rho _{n})\}.\) The following are equivalent:
+
+\begin{enumerate}
+  \item \(A\) is semisimple
+  \item \(Rad(A)=0\)
+  \item \(\dim_{k}(A)=\sum _{i=1}^n \dim_{k}(V_{i})^{2}\)
+  \item \(A\cong \Mat_{d_{1}}(D_{1})\oplus \cdots \oplus \Mat_{d_{m}}(D_{m})\) for some division \(k\)-algebras \(D_{i}\)
+\end{enumerate}
+\end{thm}
+
+
+\begin{thm}
+Let \(A\) be a finite dimensional semisimple \(k\)-algebra, and suppose that \(\Irr(A)=\{(V_{1},\rho _{1}),\ldots ,(V_{n},\rho _{n})\}\). Then we have an isomorphism of \(k\) algebras
+\[
+\bigoplus_{i=1}^n\rho _{i} : A\rightarrow \End_{k}(V_{1})\oplus \cdots \oplus \End_{k}(V_{n})
+\]
+\end{thm}
+
+Assume that \(k\) is algebraically closed, \(A\) is finite dimensional \(k\)-algebra, and \(\Irr(A)=\{(V_{1},\rho _{1}),\ldots ,(V_{n},\rho _{n})\}\).
+
+\begin{defn}
+Let \((V,\rho )\) be a finite dimensional representation of \(A\). The character of \(V\) is the functional \(\chi _V\in A^*:=\Hom_{k}(A,k)\) defined by \(\chi _V(a):=Tr(\rho (a)).\) A character \(\chi _V\) is always a central functional on \(A\), i.e. \(\chi _V([A,A])=0.\) Hence we often consider \(\chi _V\) as an element of the subspace \((A,[A,A])^*=\Hom_{k}(A/[A,A],k)\subseteq \Hom_{k}(A,k).\)
+\end{defn}
+
+\begin{prop}
+Let \(U,V\) be equivalent finite dimensional \(A\)-modules. Then \(\chi _U=\chi _V.\)
+\end{prop}
+
+\begin{prop}
+If \(U\) is an irreducible \(A\)-module, then its character \(\chi _U=\chi _{V_{i}}\) for some \(V_{i}\in \Irr(A).\)
+\end{prop}
+
+\begin{defn}
+We call \(\chi _{i}=\chi _{V_{i}}\) an irreducible character of \(A\), and \(\{\chi _{1},\ldots ,\chi _{n}\}\) the set of irreducible characters of \(A\).
+\end{defn}
+
+\begin{prop}
+Let \(U\subseteq V\) be a subrepresentation. Then \(\chi _V=\chi _U+\chi _{V/U}\).
+\end{prop}
+
+\begin{prop}
+Let \(W\) be a finite dimensional \(A\)-module, and suppose that \(0=W_{0}\subseteq W_{1}\subseteq \ldots \subseteq W_N:=W\) is an ascending filtration of \(W\) with consecutive subquotients \(U_{i}=W_{i}/W_{i-1}\). Let \(U=\bigoplus_{i=1}^N.\) Then \(\chi _V=\chi _U\).
+\end{prop}
+
+\begin{thm}
+Let \(0=W_{0}\subseteq W_{1}\subseteq \ldots \subseteq W_N:=W\) be a Jordan-Holder filtration of \(W.\) The character of a finite dimensional representation \(W\) of \(A\) can be written as a sum of irreducible characters of \(A\). If \(m_{i}=|\{k\in \{1,\ldots ,N\}|U_{k}\cong V_{i}|\in \Bbb{Z}_{\geq 0}\) (the so-called Jordan Holder multiplicity of \(V_{i}\) in \(W\) with respect to the given Jordan-Holder filtration) then \(\chi _W=\sum _{i=1}^n m_{i}\chi _{i}\).
+\end{thm}
+
+\begin{thm}
+The characters of a collection of mutually inequivalent irreducible finite dimensional representations of \(A\) are linearly independent. If \(A\) is a finite dimensional semisimple algebra then the characters of the elements of \(\Irr(A)\) form a basis of \((A/[A,A])^*.\)
+\end{thm}
+
+\begin{thm}
+Suppose that \(k\) is algebraically closed and of characteristic zero. If \(V\) is a finite dimensional semisimple \(A\)-module then up to equivalence, \(V\) is determined by its character \(\chi _V.\)
+\end{thm}
+
+\begin{thm}[Jordan-Holder Theorem]
+Suppose that \(k\) is algebraically closed and of characteristic \(\geq 0\), and \(W\) a finite dimensional \(A\)-module. Let \(0=W_{0}\subseteq W_{1}\subseteq \cdots \subseteq W_N:=W\) be an ascending Jordan-Holder filtration of \(W\), with consectuive subquotients \(U_{i}=W_{i}/W_{i-1}\) (with \(i=1,\ldots ,N)\). Let \(U\) be a semisimple \(A\)-module \(U=\oplus _{i=1}^nU_{i}\). Then \(U\) is, up to equivalance, determined by \(V\) (in particular the equivalance class of \(U\) is independent of the chose ascending filtration). The Jordan-Holder multiplicities of \(W\) are independent of the chosen filtrations.
+\end{thm}
+
+\begin{defn}
+The semisimple \(A\)-module \(U=\oplus _{i=1}^NU_{i}\) of the Jordan Holder Theorem is called the semisimplification of \(V\). It is determined up to equivalance by \(V\) (hence independent of the chosen filtration).
+\end{defn}
+
+\subsection{Measure Theory Chapter 8}
+\begin{prop}
+Show that \(\bar{\mathcal{B}}\) is generated by \(\{[a,\infty ],a\in \Bbb{R}\}\)
+\end{prop}
+
+\begin{proof}
+Showing that \(\bar{\mathcal{B}}\) is generated by \(\{[a,\infty ],a\in \Bbb{R}\}\) is equivalent with showing that
+\[
+\bar{\mathcal{B}}=\sigma \{[a,\infty ],a\in \Bbb{R}\}
+\]
+which is equivalent with showing that
+\[
+\bar{\mathcal{B}}\subseteq \sigma \{[a,\infty ],a\in \Bbb{R}\} \quad \wedge  \quad \sigma \{[a,\infty ],a\in \Bbb{R}\} \subseteq \bar{\mathcal{B}}
+\]
+
+\begin{enumerate}
+  \item To show that
+\[
+\sigma \{[a,\infty ],a\in \Bbb{R}\} \subseteq \bar{\mathcal{B}} \qquad \forall a\in \Bbb{R}
+\]
+As \(\bar{\mathcal{B}}\) is a \(\sigma \)-algebra it suffices to show
+\[
+[a,\infty ] \subseteq \bar{\mathcal{B}} \qquad \forall a\in \Bbb{R}\qquad \checkmark.
+\]
+  \item To show that
+\[
+\bar{\mathcal{B}}\subseteq \sigma \{[a,\infty ],a\in \Bbb{R}\} 
+\]
+it suffices to show that
+\[
+\forall B\in \mathcal{B} : B,B\cup \{\infty \},B\cup \{-\infty \},B\cup \{-\infty ,\infty \}\in \sigma \{[a,\infty ],a\in \Bbb{R}\}.
+\]
+As \(\sigma \{[a,\infty ],a\in \Bbb{R}\}\) is a \(\sigma \)-algebra it suffices to show that
+\[
+\mathcal{B}\subseteq \sigma \{[a,\infty ],a\in \Bbb{R}\} \qquad \{\infty \},\{-\infty \}\in \sigma \{[a,\infty ],a\in \Bbb{R}\}.
+\]
+\begin{enumerate}
+  \item To show that \(\mathcal{B}\subseteq \sigma [a,\infty ]\) it suffices to show that
+\[
+[a,b)\in \sigma \{[a,\infty ],a\in \Bbb{R}\} \qquad \forall a,b\in \Bbb{R}.
+\]
+This holds as \([a,b)=[a,\infty ]-[b,\infty ].\)
+  \item To show that \(\{\infty \},\{-\infty \}\in \sigma \{[a,\infty ],a\in \Bbb{R}\}\). Note that
+\[
+\{\infty \}=\bigcap _{j\in \Bbb{N}}[j,\infty ] \qquad \{-\infty \}=\bigcap _{j\in \Bbb{N}}[-j,\infty ]^c
+\]
+\end{enumerate}
+\end{enumerate}
+
+\end{proof}
+
+\begin{prop}
+If a measurable function \(h:X\rightarrow \Bbb{R}\) attains only finitely many values \(y_{1},\ldots ,y_M\in \Bbb{R}\), then it is a simple function and it has a standard representation.
+\end{prop}
+
+\begin{proof}
+Showing that \(h\) is a simple function is b.d.e. with showing that
+\[
+h(x)=\sum _{j=1}^M y_{j}1_{A_{j}}(x) \qquad \exists y_{1},\ldots ,y_M\in \Bbb{R}\  \exists A_{1},\ldots ,A_{m}\in \mathcal{A}.
+\]
+Set \(A_{i}:=\{h=y_{i}\}=\{h\leq y_{i}\}-\{h<y_{i}\}\in \mathcal{A}\). Note that those sets are mutally disjoint, otherwise \(h\) would map some point in the domain to two points \(y_{i},y_{j}\). Therefore we have that
+\[
+h(A_{i})=y_{i} \qquad \sum _{j=1}^M y_{j}1_{A_{j}}(A_{i})=y_{i}
+\]
+and the statement follows.
+\end{proof}
+
+\begin{prop}
+Every simple functions has at least one standard representation. And this standard representation is measurable, i.e \(\mathcal{E}(\mathcal{A})\subseteq \mathcal{M}(\mathcal{A}).\)
+\end{prop}
+\begin{defn}
+For a function \(u:X\rightarrow \Bbb{R}\) we write
+\[
+u^+(x):=\max\{u(x),0\} \qquad u^-(x):=\min\{u(x),0\}
+\]
+for the positive \(u^+\) and negative \(u^-\) parts of \(u\).
+\end{defn}
+
+\begin{prop}
+We have
+\[
+u=u^+-u^- \qquad |u|=u^++u^-
+\]
+\end{prop}
+
+\begin{prop}
+If \(f,g\in \mathcal{E}(\mathcal{A}),\) then
+\[
+f\pm g,fg,f^+,f^-,|f|\in \mathcal{E}(\forall )
+\]
+\end{prop}
+
+\begin{defn}
+The expression \(\sup_{j\in \Bbb{N}}u_{j}\) is short for
+\[
+\sup_{j\in \Bbb{N}}u_{j}(x):=\sup\{u_{j}(x):j\in \Bbb{N}\} \qquad \forall x
+\]
+\end{defn}
+
+\begin{defn}
+The expression \(u_{j}\overset{j\rightarrow \infty }{\longrightarrow }u\) is short for
+\[
+\lim_{j\rightarrow \infty }u_{j}(x)=u(x) \qquad \forall x
+\]
+\end{defn}
+
+\begin{prop}
+\[
+\inf_{j\in \Bbb{N}} u_{j}(x)=-\sup_{j\in \Bbb{N}}(-u_{j}(x))
+\]
+\end{prop}
+
+\begin{defn}
+Definition of the lower resp. upper limits
+\[
+\lim\inf_{j\rightarrow \infty } u_{j}(x):=\sup_{k\in \Bbb{N}}\Big(\inf_{j\geq k}u_{j}(x)\Big)=\lim_{k\rightarrow \infty }\Big(\inf_{j\geq k}u_{j}(x)\Big)
+\]
+
+\[
+\lim\sup_{j\rightarrow \infty } u_{j}(x):=\inf_{k\in \Bbb{N}}\Big(\sup_{j\geq k}u_{j}(x)\Big)=\lim_{k\rightarrow \infty }\Big(\sup_{j\geq k}u_{j}(x)\Big)
+\]
+\end{defn}
+
+\begin{prop}
+If \(u,v\) are \(\mathcal{A}/\bar{\mathcal{B}}\)-measurable numerical functions, then
+\[
+\{u<v\},\quad \{u\leq v\}, \quad \{u=v\}, \quad  \{u\neq v\}\  \in \  \mathcal{A}
+\]
+\end{prop}
+
