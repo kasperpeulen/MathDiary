@@ -1,0 +1,190 @@
+\section{19-10-2014}
+\subsection{Representation Theory Reader Week 40}
+
+
+\begin{prop}
+\[
+\dim_D(V)=\dim_{k}(V)/\dim_{k}(D)
+\]
+\end{prop}
+
+
+\begin{prop}
+Let \(k\) be a field, and let \(D\) bea finite dimensional \(k\)-division algebra. Then
+
+\begin{enumerate}
+  \item \(A:=\Mat_{n}(D)\) is a semisimple \(k\)-algebra
+  \item with a single isomorphism class of simple \(A\)-modules, namely \(V=D^n\)
+  \item \(A'=D^{\op}\)
+\end{enumerate}
+\end{prop}
+
+
+\begin{proof}[Proof of 1]
+To show that \(\Mat_{n}(D)\) is a semisimple \(k\)-algebra, it suffices to show that the regular representation is semisimple.
+
+Showing that the regular representation is semisimple, is equivalent with showing that the regular representation is a direct sum of irreducible submodules.
+It suffices to show that
+
+\begin{enumerate}
+  \item \(\Mat_{n}(D)\cong V^n \qquad V:=D^n.\)
+  \item \(D^n\) is an irreducible submodule of the regular representation
+\end{enumerate}
+
+To show that \(D^n\) is irreducible submodule, it suffices to show that every nonzero vector \(v\in D^n\) is cyclic. To show that is suffices to show that
+\[
+\Mat_{n}(D).(d_{1},\ldots ,d_{n})=D^n \qquad \forall d_{1},\ldots ,d_{n}\in D.
+\]
+To show this it suffices to show that
+\[
+D^n\subseteq \Mat_{n}(D).(d_{1},\ldots ,d_{n}) \qquad \forall d_{1},\ldots ,d_{n}\in D.
+\]
+In other words, for any \(v,w\in D^n\) there exists a matrix such that
+\[
+v=Mw \qquad \checkmark.
+\]
+
+\end{proof}
+
+\begin{proof}[Proof of 2]
+Remember that
+\[
+\dim_{k}(A)\geq \sum _{i=1}^n\dim_{D_{i}}(V_{i})^2\dim_{k}(D_{i}).
+\]
+To show that the only irreducible representation of \(\Mat_{n}(D)\) is \(V=D^n\) it suffices to show that
+\[
+\dim_{D}(V)^2\dim_{k}(D)=\dim_{k}(\Mat_{n}(D))
+\]
+which is equivalent with showing that
+\[
+\dim_{D}(D^n)^2=\dim_D(\Mat_{n}(D)) \quad \checkmark.
+\]
+\end{proof}
+
+\begin{proof}[Proof of 3]
+\(A'=D^{op}\)
+
+\(\Uparrow \) [by the DCP we have \(\End_{A'}(V)=\rho (A)\overset{?}{\cong }A\)]
+
+\(\End_{D^{op}}(V)=A\)
+
+\(\Uparrow \) [given]
+
+\(\End_{D^{op}}(V)=\Mat_{n}(D)\)
+
+\(\Uparrow \) [\(\End_D(D)=D^{op}\) and \(\End_{D^{op}}(D)=D\)]
+
+\(\End_{D^{op}}(V)=\Mat_{n}(\End_{D^{op}}(D))\)
+
+\(\Uparrow \) [by prop 4.9]
+
+\(V\) is a finite dimensional semisimple \(D^{op}\) module and any irreducible  module is equivalent to \(D\)
+
+\(\Uparrow \)
+
+\(V=D^ne_{1}\oplus \cdots \oplus D^ne_{n}\) is a decomposition of \(V\) as direct sum of irreducible \(D^{op}\) modules where \({e_{1},\ldots ,e_{n}}\) is the standard \(D\)-basis of of \(V=D^n\)
+\end{proof}
+
+\begin{prop}
+A finite dimensional \(k\)-algebra of the form
+\[
+A:=\Mat_{d_{1}}(D_{1})\oplus \cdots \oplus \Mat_{d_{n}}(D_{n})
+\]
+with \(D_{i}\) a finite dimensional algebra over \(k\), is a semisimple \(k\)-algebra
+with \(\Irr(A)=\{V_{1},\ldots ,V_{n}\}\), where \(V_{i}=D_{i}^{d_{i}}\) is equipped with the matrix multiplication action of the summand \(\Mat_{d_{i}}(D_{i}).\)
+\end{prop}
+
+\begin{proof}
+\textbf{Showing that \(A\) is a semisimple \(k\)-algebra}
+
+\(\Uparrow \) by P4.16
+
+The left regular representation of \(A\) is semisimple
+
+\(\Uparrow \) direct sum of semisimple modules are semisimple
+
+Every \(\Mat_{d_{i}}(D_{i})\) is semisimple. (by Lemma 5.1)
+
+\textbf{Showing that $V_{i},V_{j}$ are inequivalent representations of \(A\)}
+
+\(\Uparrow \) [by definition]
+
+\(V_{i}=D_{i}^{d_{i}}\) and \(V_{j}=D_{j}^{d_{j}}\) are inequivalent representations of
+\[
+\Mat_{d_{1}}(D_{1})\oplus \cdots \oplus \Mat_{d_{n}}(D_{n})
+\]
+
+\(\Uparrow \) [\(\Mat_{d_{1}}(D_{1})=V_{1}^{d_{1}}=D_{1}^{d_{1}^2}\)]
+
+\(V_{i}\) and \(V_{j}\) are inequivalent representations of
+\[
+V_{1}^{d_{1}}\oplus \cdots \oplus V_{n}^{d_{n}}
+\]
+
+\(\Uparrow \)
+
+Let \(v_{i}\in V_{i}-0\) and \(v_{j}\in V_{j}-0\). There exists an \(M\in \Mat_{d_{i}}(D_{i})\) such that \(M(v_{i})\neq 0\), but \(M(v_{j})=0\) for any \(M\in \Mat_{d_{i}}(D_{i})\).
+\end{proof}
+\newpage
+\begin{prop}
+If \(V\) is a finite dimensional, then there exists a finite descending filtration with irreducible consecutive subquotients.
+\end{prop}
+
+\begin{proof}
+There exists a finite descending filtration with irreducible consecutive subquotients.
+
+\(\Uparrow \) by defintion
+
+There exists submodules \(V_{0},.\ldots ,V_{n}\) such that
+
+\(V=V_{0}\supseteq V_{1}\supseteq \ldots \supseteq V_{n}:=0 \qquad V_{i-1}/V_{i} \text{ irreducible }\)
+
+\begin{itemize}
+  \item Base case: If \(\dim_{k}(V)=0\) then \(V\) itself is already irreducible.
+  \item Induction hypothesis: Suppose that the statement is true for modules of dimension smaller than $n$.
+  \item Induction step: Let $V$ be a submodule of dimension $<n+1$. It suffices to show the case that $V$ is of dimension $n$. Let \(V_{1}\) be a proper submodule of $V$ of maximal dimension. Then \(V_{0}/V_{1}=V/V_{1}\) is irreducible. And by induction hypothesis we can construct a finite descending filtration now.
+\end{itemize}
+\end{proof}
+\newpage
+\begin{prop}
+\(\Rad(A)\) is a two sided ideal of \(A\)
+\end{prop}
+
+\begin{proof}
+\(\Uparrow \) [by definition]
+
+The set of all elements of \(A\) which act by \(0\) in all irreducible representations of \(A\) is a two sided ideal of \(A\)
+
+\(\Uparrow \) [by definition]
+
+\(\Rad(A)a\subseteq \Rad(A)\) en \(a\Rad(A)\subseteq \Rad(A)\) for all \(a\in A\)
+
+\begin{itemize}
+  \item \textbf{\(\Rad(A)a\subseteq \Rad(A) \qquad \forall a\in A\)}
+
+\(\Uparrow \)
+
+\(ra(v)=0 \qquad \forall a\in A,\forall v\in V\subseteq \Irr(A), \forall r\in \Rad(A)\)
+
+\(\Uparrow \) [\(a(v)\in V\) for any \(v\in V\subseteq \Irr(A)\)]
+
+\(r(w)=0  \qquad \forall w\in V\subseteq \Irr(A), \forall r\in \Rad(A)\)
+
+\(\Uparrow \) by definition of \(\Rad(A)\)
+  \item \textbf{\(a\Rad(A)\subseteq \Rad(A)\) for all \(a\in A\)}
+
+\(\Uparrow \)
+
+\(ar(v)=0 \qquad \forall a\in A,\forall v\in V\subseteq \Irr(A), \forall r\in \Rad(A)\)
+
+\(\Uparrow \)
+
+\(a(r(v))=0 \qquad \forall a\in A,\forall v\in V\subseteq \Irr(A), \forall r\in \Rad(A)\)
+
+\(\Uparrow \)
+
+\(a(0)=0 \qquad \forall a\in A\)
+\end{itemize}
+
+\end{proof}
+

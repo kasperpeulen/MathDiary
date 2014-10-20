@@ -1,0 +1,293 @@
+\section{20-10-2014}
+\subsection{Representation Theory Reader Week 40}
+\begin{prop}
+Let \(A\) be a finite dimensional \(k\)-algebra such that \(\Irr(A)=\{(V_{1},\rho _{1}),\ldots ,(V_{n},\rho _{n})\}.\) Then
+\[
+\Irr(A/\Rad(A))=\{(V_{1},\overline{\rho _{1}}),\ldots ,(V_{n},\overline{\rho _{n}})\}.
+\]
+\end{prop}
+
+\begin{proof}
+\(\Irr(A/\Rad(A))=\{(V_{1},\overline{\rho _{1}}),\ldots ,(V_{n},\overline{\rho _{n}})\}\)
+
+\(\Uparrow \)
+
+\begin{itemize}
+  \item \(\{(V_{1},\overline{\rho _{1}}),\ldots ,(V_{n},\overline{\rho _{n}})\}\subseteq \Irr(A/\Rad(A))\)
+
+\(\Uparrow \)
+
+\((V_{i},\overline{\rho _{i}})\) is an irreducible representation of \(A/\Rad(A)\)
+\begin{itemize}
+  \item \((V_{i},\overline{\rho _{i}})\) is a representation of \(A/\Rad(A)\)
+
+\(\Uparrow \)  [by definition]
+
+\(\overline{ab}.v_{i}=\bar{a}.(\bar{b}.v_{i}) \qquad \forall a,b\in A\  \forall v_{i}\in V_{i}\)
+
+\(\Uparrow \)
+
+\(\bar{a}.v_{i}=a.v_{i}\)
+
+\(\Uparrow \) [by definition of \(\overline{\rho _{i}}\) ?]
+  \item \((V_{i},\overline{\rho _{i}})\) is a irreducible \(A/\Rad(A)\)-module
+
+\(\Uparrow \) [by defintion]
+
+\(A/\Rad(A).v_{i}\supseteq V_{i}\) for all nonzero vectors \(v_{i}\in V_{i}\)
+
+\(\Uparrow \) [Let \(v\in V_{i}-0\) then there exists a nonzerovector \(v\in V_{i}\) and and \(a\in A\) such that \(v_{i}=a.v\). If \(a\) would have been in \(a\Rad(A)\), then \(a.v=0\), so we know that \(a\in A/\Rad(A)-0\).]
+
+\(A.v_{i}\supseteq V_{i}\) for all nonzero vectors \(v_{i}\in V_{i}\)
+\end{itemize}
+  \item \(\Irr(A/\Rad(A))\subseteq \{(V_{1},\overline{\rho _{1}}),\ldots ,(V_{n},\overline{\rho _{n}})\}\)
+
+\(\Uparrow \)
+
+every irreducible representation of \(A/\Rad(A)\) lifts to an irreducible representation of \(A\)
+
+\(\Uparrow \)  [Let \(V\) be an irreducible representation of \(A/\Rad(A).\) Then \(A/\Rad(A).v\supseteq V\) for any nonzero vector \(v\in V.\) But then surely \(A.v\supseteq V\). So \(V\) is an irreducible representation of \(A\) as well.]
+\end{itemize}
+
+\end{proof}
+
+\begin{prop}
+We have an isomorphism of \(k\)-algebras:
+\[
+\bigoplus_{i=1}^n \overline{\rho _{i}} : A/\Rad(A) \rightarrow  \End_{D_{1}}(V_{1})\oplus \cdots \oplus \End_{D_{n}}(V_{n})
+\]
+where \(D_{i}:=\End_A(V_{i})\) a finite dimensional division algebra over \(k\).
+And \(A/\Rad(A)\) is semisimple.
+\end{prop}
+
+\begin{proof}
+\(\bigoplus_{i=1}^n \overline{\rho _{i}} : A/\Rad(A) \rightarrow  \End_{D_{1}}(V_{1})\oplus \cdots \oplus \End_{D_{n}}(V_{n})\) is an isomorphism of \(k\)-algebras
+
+\(\Uparrow \)  [isomorphism theorem]
+
+\begin{itemize}
+  \item \(\bigoplus_{i=1}^n \rho _{i} : A \rightarrow  \End_{D_{1}}(V_{1})\oplus \cdots \oplus \End_{D_{n}}(V_{n})\) is surjective
+
+\(\Uparrow \)
+
+\(\bigoplus_{i=1}^n \rho _{i}(A)= \End_{D_{1}}(V_{1})\oplus \cdots \oplus \End_{D_{n}}(V_{n})\)
+
+\(\Uparrow \)  [C4.20]
+
+Define \(V=V_{1}\oplus \cdots \oplus V_{n}\).
+  \item the kernel of \(\bigoplus_{i=1}^n \rho _{i}\) is \(\Rad(A)\)
+
+\(\Uparrow \) [by definition of \(\Rad(A)\)]
+\end{itemize}
+\end{proof}
+
+\begin{proof}
+\(A/\Rad(A)\) is semisimple
+
+\(\Uparrow \) [P5.2]
+
+There exists some division algebras \(D_{i}\) such that
+\[
+A/\Rad(A)\cong \Mat_{d_{1}}(D_{1})\oplus \cdots \oplus \Mat_{d_{n}}(D_{n})
+\]
+\(\Uparrow \)
+
+There exists some division algebras \(D_{i}\) such that
+\[
+\End_{D_{1}}(V_{1})\oplus \cdots \oplus \End_{D_{n}}(V_{n})\cong \Mat_{d_{1}}(D_{1})\oplus \cdots \oplus \Mat_{d_{n}}(D_{n})
+\]
+\(\Uparrow \)
+
+Choose \(D_{i}=\End_A(V_{i})\). Then we have for some \(d_{i}\in \Bbb{N}\) that
+\[
+\End_{D_{i}}(V_{i})\cong \Mat_{d_{i}}(D_{i})
+\]
+\end{proof}
+
+\begin{thm}
+Let \(A\) be a finite dimensional \(k\)-algebra, and \(\Irr(A)=\{(V_{1},\rho _{1}),\ldots ,(V_{n},\rho _{n})\}.\) The following are equivalent:
+
+\begin{enumerate}
+  \item \(A\) is semisimple
+  \item \(\Rad(A)=0\)
+  \item \(\dim_{k}(A)=\sum _{i=1}^n \dim_{D_{i}}(V_{i})^{2} \dim_{k}(D_{i})\) with \(D_{i}=\End_A(V_{i})\)
+  \item \(A\cong \Mat_{d_{1}}(D_{1})\oplus \cdots \oplus \Mat_{d_{m}}(D_{m})\) for some \(k\) division algebras
+\end{enumerate}
+\end{thm}
+
+
+\begin{proof}
+\(A\) is semisimple \(\Longrightarrow \) \(\Rad(A)=0\)
+
+\(\Downarrow \)
+
+\(\Rad(A)\) has an complement \(B\) such that \(A=\Rad(A)\oplus B\) is a direct sum of of \(A\)-modules
+
+\(\Downarrow \)
+
+There exists an corresponding decomposition \(1=e_R+e_B\) in idempotents of \(A'=\End_A(A)=A^{\op}\)
+
+\(\Downarrow \)  [\(e_R=e_R^2=e_R^3=e_R^n=0\)]
+
+\(A=B\)
+
+\(\Downarrow \) [\(A=\Rad(A)\oplus B\)]
+
+\(\Rad(A)=0\)
+\end{proof}
+
+\begin{proof}
+\(\dim_{k}(A)=\sum _{i=1}^n \dim_{D_{i}}(V_{i})^{2} \dim_{k}(D_{i})\)
+
+\(\Uparrow \) [\(\Rad(A)=0\) by hypothesis]
+
+\(\dim_{k}(\End_{D_{1}}(V_{1})\oplus \cdots \oplus \End_{D_{n}}(V_{n}))=\sum _{i=1}^n \dim_{D_{i}}(V_{i})^{2} \dim_{k}(D_{i})\)
+
+\(\Uparrow \)
+
+\(\dim_{k}(\End_{D_{i}}(V_{i}))= \dim_{D_{i}}(V_{i})^{2} \dim_{k}(D_{i})\)
+
+\(\Uparrow \)
+
+\(\dim_{D_{i}}(\End_{D_{i}}(V_{i}))\dim_{k}(D_{i}) =\dim_{D_{i}}(V_{i})^{2} \dim_{k}(D_{i})\)
+
+\(\Uparrow \)
+
+\(\dim_{D_{i}}(\End_{D_{i}}(V_{i})) =\dim_{D_{i}}(V_{i})^{2} \)
+
+\end{proof}
+
+\begin{defn}
+Let \((V,\rho )\) be a finite dimensional representation of \(A\). The character of \(V\) is the functional \(\chi _V\in \Hom_{k}(A,k)\) defined by \(\chi _V(a):=Tr(\rho (a)).\)
+\end{defn}
+
+\begin{prop}
+The character \(\chi _V\) is always a central functional on \(A\), i.e. \(\chi _V([A,A])=0.\) Hence we often consider \(\chi _V\) as an element of the subspace \(\Hom_{k}(A/[A,A],k)\).
+\end{prop}
+
+\begin{prop}
+Let \(U,V\) be equivalent finite dimensional \(A\)-modules. Then \(\chi _U=\chi _V.\)
+\end{prop}
+\newpage
+\begin{proof}
+Let \(\phi :U\rightarrow V\) be an interwining isomorphism. Then
+\[
+\phi (\rho _U(a)(u))=\rho _V(a)(\phi (u)) 
+\] \[
+\phi \circ \rho _U(a)=\rho _V(a)\circ \phi 
+\]
+\(\chi _U=\chi _V\)
+
+\(\Uparrow \)
+
+\(\chi _U(a)=x_V(a) \qquad \forall a\in A\)
+
+\(\Uparrow \)
+
+\(Tr(\rho _V(a))=Tr(\rho _U(a)) \qquad \forall a\in A\)
+
+\(\Uparrow \)
+
+\begin{itemize}
+  \item \(Tr(\rho _V(a))=Tr(\phi \circ \rho _U(a)\circ \phi ^{-1})\)
+
+\(\Uparrow \)
+
+\(\phi \circ \rho _U(a)=\rho _V(a)\circ \phi \)
+  \item \(Tr(\rho _U(a))=Tr(\phi \circ \rho _U(a)\circ \phi ^{-1})\)
+
+\(\Uparrow \)
+
+Remember the general property: \(Tr(L\circ K)=Tr(K\circ L)\)
+\end{itemize}
+
+\end{proof}
+
+\begin{prop}
+Let \(W\) be a finite dimensional \(A\)-module, and suppose that
+\[
+0=W_{0}\subseteq W_{1}\subseteq \cdots \subseteq W_{n}:=W
+\]
+is an ascending filtration of \(W\) with consecutive subquotients \(U_{i}=W_{i}/W_{i-1}\). Let \(U=\oplus _{i=1}^n U_{i}\). Then \(\chi _W=\chi _U.\)
+\end{prop}
+
+\begin{proof}
+
+\begin{itemize}
+  \item Base case: \(0=W_{1}\subseteq W_{1}:=W.\) We have \(U_{1}=W/0=W.\) So \(U=W\)
+  \item Induction hypothesis: \(\chi (W_{n-1})=\chi (\oplus _{i=1}^{n-1} U_{i})\)
+  \item Induction step: \(\chi (W)=\chi (W_{n-1})+\chi (W/W_{n-1})\) by prop. 5.14 and so \(\chi (W)=\chi (W_{n-1})+\chi (U_{n})=\chi (\oplus _{i=1}^{n-1} U_{i})+\chi (U_{n})\). It suffices to show that \(\chi (\oplus _{i=1}^n U_{i}) =\chi (\oplus _{i=1}^{n-1} U_{i})+\chi (U_{n})\). To show that it suffices to show that \(\oplus _{i=1}^n U_{i}/U_{n}=\oplus _{i=1}^{n-1} U_{i}\). Which follows from exercise 5d week 36.
+\end{itemize}
+
+\end{proof}
+
+\begin{thm}
+The characters \(\chi _{i}\) of a collection \(V_{1},\ldots ,V_{n}\) of mutually inequivalent irreducible finite dimensional representations of \(A\) are linearly independent. If \(A\) is a finite dimensional semisimple algebra then the characters of the elements of \(\Irr(A)\) form a basis of \((A/[A,A])^*\)
+\end{thm}
+
+\begin{proof}
+\(\sum _{j=1}^n c_{j}\chi _{j}=0 \Longrightarrow c_{i}=0\  \  \forall i=1,\ldots ,n\)
+
+\(\Uparrow \)
+
+Let \(i=1,\ldots ,n.\) We are going to show that
+
+\(c_{i}=0\)
+
+\(\Uparrow \)
+
+\(\exists a_{i}\in A:\chi _{j}(a_{i})=\delta _{ij} \qquad \forall j=1,\ldots ,n\)
+
+\(\Uparrow \)
+
+\(\exists a_{i}\in A:Tr(\rho _{j}(a_{i}))=\delta _{ij} \qquad \forall j=1,\ldots ,n\)
+
+\(\Uparrow \)
+
+\(\rho _{i} : A\rightarrow \End_{k}(V_{i})\) is surjective
+\end{proof}
+
+\begin{proof}
+If \(A\) is a finite dimensional semisimple algebra then the characters of the elements of \(\Irr(A)\) form a basis of \((A/[A,A])^*\)
+
+\(\Uparrow \)
+
+\((A/[A,A]^*)\) has dimension \(n\)
+
+\(\Uparrow \)
+
+\((A/[A,A])\) has dimension \(n\)
+
+\(\Uparrow \)
+
+\((A/[A,A]) \cong  \bigoplus_{i=1}^n M_{i}/[M_{i},M_{i}]\)
+
+\(\Uparrow \)
+
+\(A\cong \bigoplus_{i=1}^n M_{i}\) and \([M_{i},M_{i}]=\{m\in M_{i} : Tr(m)=0\}\)
+\end{proof}
+
+\begin{defn}
+A representation of a group \(G\) over \(k\) is a pair \((V,\rho _G)\) where \(V\) is a \(k\)-vector space, and \(\rho _G: G\rightarrow GL_{k}(V)\) a homomorphism of groups.
+\end{defn}
+
+\begin{defn}
+The group algebra \(k[G]\) over \(k\) is the finite dimensional \(k\)-algebra with \(k\)-basis \(\{a_{g}:g\in G\}\) and multiplication of basis elements is given by \(a_{g}a_{h}=a_{gh}.\)
+\end{defn}
+
+\begin{thm}
+If \((V,\rho _G)\) is a represention of \(G\) over \(k\) then there exists a unique representation of \((V,\rho )\) of \(k[G]\) such that \(\rho (a_{g}):=\rho _G(g)\) for all \(g\in G.\) Conversely, if \((V,\rho )\) is a representation of \(k[G]\) then there exists a unique representation \((V,\rho _G)\) of \(G\) on \(V\) defined by \(\rho _G(g)=\rho (a_{g})\) for all \(g\in G.\) This sets up a bijection between the set of representations of \(G\) over \(k\) and the set of left \(k[G]\) modules. Moreover, the notions homomorphism of representations of \(G\) over k and homomorphism of left \(k[G]\) modules coincide.
+\end{thm}
+
+\begin{defn}
+Given a \(k[G]\) module \((V,\rho )\), we will often not distinguish between \(\rho \) and \(\rho _G\) and just write \(\rho (g)\) instead of \(\rho (a_{g})=\rho _G(g)\) if no confusion is possible.
+\end{defn}
+
+\begin{thm}
+Assume that \(Char(k)\) does not divide \(|G|\). Then \(k[G]\) is semisimple. If \(\Irr(G)=\{(V_{1},\rho _{1}),\ldots ,(V_{n},\rho _{n})\) then there exists a \(k\)-algebra isomorphism
+\[
+\rho :k[G]\rightarrow \bigoplus_{i=1}^n \End_{k}(V_{i})
+\]
+given by \(\rho (a_{g})=\bigoplus_{i=1}^n\rho _{i}(g).\) In particular, the left regular representation of \(k[G]\) is equivalent with \(\bigoplus_{i=1}^n \dim_{k}(V_{i})V_{i}\) and we have \(|G|=\sum _{i=1}^n\dim_{k}(V_{i})^2.\)
+\end{thm}
+
