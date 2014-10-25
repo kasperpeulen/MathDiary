@@ -8,9 +8,16 @@ Let \(A\) be a finite dimensional \(k\)-algebra such that \(\Irr(A)=\{(V_{1},\rh
 \end{prop}
 
 \begin{proof}
-\(\Irr(A/\Rad(A))=\{(V_{1},\overline{\rho _{1}}),\ldots ,(V_{n},\overline{\rho _{n}})\}\)
+First, how is \(\overline{\rho _{i}}:A/\Rad(A) \rightarrow \End_{k}(V_{i})\) defined ? Let's define it like this: \(\overline{\rho _{i}}(\bar{a}).v=av\). At least we end up in the codomain this way. We also have to check that: \(a,b\in x+\Rad(A) \Longrightarrow  av=bv.\) In other words, we have to check that:
+\[
+x+r_{1}(v)=x+r_{2}(v) \qquad \forall v\in V_{i},\forall r_{1},r_{2}\in \Rad(A)
+\]
+We can rewrite this equation as:
+\[
+x(v)+r_{1}(v)=x(v)+r_{2}(v) \qquad \forall v\in V_{i},\forall r_{1},r_{2}\in \Rad(A)
+\]
+This equation holds, as \(r_{1}(v)=r_{2}(v)=0\) for any element of an irreducible module.
 
-\(\Uparrow \)
 
 \begin{itemize}
   \item \(\{(V_{1},\overline{\rho _{1}}),\ldots ,(V_{n},\overline{\rho _{n}})\}\subseteq \Irr(A/\Rad(A))\)
@@ -23,20 +30,22 @@ Let \(A\) be a finite dimensional \(k\)-algebra such that \(\Irr(A)=\{(V_{1},\rh
 
 \(\Uparrow \)  [by definition]
 
-\(\overline{ab}.v_{i}=\bar{a}.(\bar{b}.v_{i}) \qquad \forall a,b\in A\  \forall v_{i}\in V_{i}\)
+\(
+(\overline{a}\overline{b}).v_{i}=\bar{a}.(\bar{b}.v_{i}) \qquad \forall \bar{a},\bar{b}\in A/\Rad(A)\ \forall v_{i}\in V_{i}
+\)
 
 \(\Uparrow \)
 
 \(\bar{a}.v_{i}=a.v_{i}\)
 
-\(\Uparrow \) [by definition of \(\overline{\rho _{i}}\) ?]
+\(\Uparrow \) [by definition of \(\overline{\rho _{i}}\) ]
   \item \((V_{i},\overline{\rho _{i}})\) is a irreducible \(A/\Rad(A)\)-module
 
 \(\Uparrow \) [by defintion]
 
 \(A/\Rad(A).v_{i}\supseteq V_{i}\) for all nonzero vectors \(v_{i}\in V_{i}\)
 
-\(\Uparrow \) [Let \(v\in V_{i}-0\) then there exists a nonzerovector \(v\in V_{i}\) and and \(a\in A\) such that \(v_{i}=a.v\). If \(a\) would have been in \(a\Rad(A)\), then \(a.v=0\), so we know that \(a\in A/\Rad(A)-0\).]
+\(\Uparrow \) [Let \(v\in V_{i}\) then there exists a nonzerovector \(v\in V_{i}\) and and \(a\in A\) such that \(v_{i}=a.v\). But $a.v=\bar{a}v$. So $v \in A/\Rad(A).v_{i}$.]
 
 \(A.v_{i}\supseteq V_{i}\) for all nonzero vectors \(v_{i}\in V_{i}\)
 \end{itemize}
@@ -72,9 +81,8 @@ And \(A/\Rad(A)\) is semisimple.
 
 \(\bigoplus_{i=1}^n \rho _{i}(A)= \End_{D_{1}}(V_{1})\oplus \cdots \oplus \End_{D_{n}}(V_{n})\)
 
-\(\Uparrow \)  [C4.20]
+\(\Uparrow \)  [C4.20: If \(V_{1},\ldots ,V_{n}\) are mutually inequivalent irreducible \(A\)-modules, then \(\rho (A)=\End_{D_{1}}(V_{1})\oplus \cdots \oplus \End_{D_{n}}(V_{n})\).]
 
-Define \(V=V_{1}\oplus \cdots \oplus V_{n}\).
   \item the kernel of \(\bigoplus_{i=1}^n \rho _{i}\) is \(\Rad(A)\)
 
 \(\Uparrow \) [by definition of \(\Rad(A)\)]
@@ -84,13 +92,13 @@ Define \(V=V_{1}\oplus \cdots \oplus V_{n}\).
 \begin{proof}
 \(A/\Rad(A)\) is semisimple
 
-\(\Uparrow \) [P5.2]
+\(\Uparrow \) [P5.2: If \(A:=\Mat_{d_{1}}(D_{1})\oplus \cdots \oplus \Mat_{d_{n}}(D_{n})\), with \(D_{i}\) a finite dimensional division algebra over \(k\), then \(A\) is semisimple.]
 
 There exists some division algebras \(D_{i}\) such that
 \[
 A/\Rad(A)\cong \Mat_{d_{1}}(D_{1})\oplus \cdots \oplus \Mat_{d_{n}}(D_{n})
 \]
-\(\Uparrow \)
+\(\Uparrow \) [As $A/\Rad(A) \cong \End_{D_{1}}(V_{1})\oplus \cdots \oplus \End_{D_{n}}(V_{n})$]
 
 There exists some division algebras \(D_{i}\) such that
 \[

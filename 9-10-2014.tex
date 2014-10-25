@@ -24,10 +24,16 @@ which is equivalent with showing that
 \exists y\not\in A:-y\in A \Longrightarrow \exists x\in A:-x\not\in A.
 \]
 This last statement hold if we set \(x:=-y.\)
-  \item To show that \(\Sigma \) is stable under countable unions, assume \(A_{j}=B_{j}\cup B_{j}\) for some \(B_{j}\in \mathcal{B}([0,\infty )\). We have
+  \item Showing that \(\Sigma \) is stable under countable unions is equivalent with showing that
 \[
-\bigcup _{j\in \Bbb{N}}A_{j}=\bigcup _{j\in \Bbb{N}}B_{j}\cup \bigcup _{j\in \Bbb{N}}-B_{j}\in \Sigma 
+(A_{j})_{j\in \Bbb{N}}\in \Sigma \  \Longrightarrow \  \bigcup _{j=1}^\infty A_{j}\in \Sigma .
 \]
+It suffices to show that
+\[
+\forall x_{j}\in A_{j}:-x_{j}\in A_{j}\  \Longrightarrow \  \forall x\in \bigcup _{j=1}^\infty A_{j} :-x\in \bigcup _{j=1}^\infty A_{j}.
+\]
+This holds: Let \(x\in \bigcup _{j=1}^\infty A_{j}\). Then for some \(j\in \Bbb{N}\) we have \(x\in A_{j}\). By hypothesis, \(-x\in A_{j}.\) But then \(-x\in \bigcup _{j=1}^\infty A_{j}.\)
+
 \end{enumerate}
 \end{proof}
 %
@@ -44,25 +50,31 @@ Show that non-void open sets in \(\Bbb{R}^n\) have always strictly positive Lebe
 \end{thm}
 
 \begin{proof}
-First remember that
+First recall that
 
 \begin{enumerate}
   \item \(\displaystyle \lambda ^n[a,b)=\prod _{j=1}^n(b_{j}-a_{j})\)
   \item \(\lambda ^n\) is a pre-measure that can be extended to a measure on \(\mathcal{B}(\Bbb{R}^n)\).
   \item \(\lambda ^n\) is invariant under translations
   \item \(A\subseteq B \Longrightarrow  \mu (A)\leq \mu (B)\)
-  \item \(Q_{\epsilon}=[-\epsilon,\epsilon)\)
 \end{enumerate}
 
-To show that \(\lambda ^n(U) > 0\) it suffices
+Remember we can contain a ball \(B_\epsilon(x)\) in any non-empty open set \(U\). Hence, to show that \(\lambda ^n(U)>0\) for any non-empty open set \(U\), it suffices to show that \(\lambda ^n(B_\epsilon(x))>0\).
+
+But as \(\lambda ^n\) is invariant under translations, it suffices to show that \(\lambda ^n(B_\epsilon(0))>0.\)
+
+We have that \(\lambda ^n[\dot{\epsilon},\dot{\epsilon})>0\) for any \(\dot{\epsilon}>0.\) Hence, it suffices to show that there exists such an \(\dot{\epsilon}\) such that \([\dot{\epsilon},\dot{\epsilon})\subseteq B_\epsilon(0).\)
+
+This holds: Let \(x\in [\dot{\epsilon},\dot{\epsilon}).\) Then \(|x_{j}|<2\dot{\epsilon}.\) Then \(x_{j}^2<4\dot{\epsilon}^{2}\). Then
 \[
-\lambda ^n(U')>0
+x_{1}^2+x_{2}^2+\cdots +x_{n}^2<4n\dot{\epsilon}^2.
 \]
-where \(0\in U'\) and $U'=x+U$ for some $x\in \Bbb{R}^n$. To show that it suffices to show that
+So if we set \(\dot{\epsilon}:=\frac{\epsilon}{2\sqrt n}\). Then
 \[
-\lambda ^n(B_\epsilon(0))>0
+x_{1}^2+x_{2}^2+\cdots +x_{n}^2<\epsilon.
 \]
-where $B_\epsilon(0)\subseteq U$. To show that it suffices to show that \(Q_{\epsilon'}\subseteq B_{\epsilon}\) for some \(\epsilon'>0\). This holds if we set \(\epsilon':=\frac{\epsilon}{\sqrt {2n}}\).
+And \(x\in B_\epsilon(0).\)
+
 \end{proof}
 
 \begin{thm}[Problem 6.3ii]
@@ -71,18 +83,6 @@ Is 6.3i still true for closed sets ?
 
 \begin{proof}
 No, take \(\{0\}\), then \(\lambda \{x\}=0.\)
-\end{proof}
-
-\begin{thm}[Problem 6.4i]
-Show that \(\lambda (a,b)=b-a\) for all \(a,b\in \Bbb{R},\space a\leq b\).
-\end{thm}
-
-\begin{proof}
-\begin{align*}
-\lambda (a,b) &=\lambda ([b-a)-\{b\}) \\
-&=\lambda [b,a)-\lambda \{b\} &&\text{T4.3iii} \\
-&=b-a-0 && \text{Problem 4.11i}
-\end{align*}
 \end{proof}
 
 \begin{thm}[Problem 6.4ii]
@@ -102,16 +102,32 @@ Note that:
 \[
 H:=\{y\}\times\Bbb{R}=\bigcap _{j\in \Bbb{N}} [y,y+1/j)\times\Bbb{R}
 \]
-  \item We have that for any \(\epsilon>0\):
-\begin{align*}
-\lambda ^2(H)&=\lambda ^2 (\{y\} \times \Bbb R) \\
-&\leq \lambda ^2\bigg(\bigcup _{n\in \Bbb{N}}[y,y+\epsilon_n)\times[-n,n) \bigg) \\
-&\leq 2 \sum _{n\in \Bbb{N}} \epsilon_n n \\
-&=\epsilon L
-\end{align*}
-This follows if we choose $\epsilon_n := \frac{\epsilon}{2^n}$. Therefore \(\lambda ^2(H)=0.\)
-\end{enumerate}
+  \item To show that \(\lambda ^2(H)=0,\) it suffices to show that
+\[
+\forall \epsilon>0: \lambda ^2(H)<\epsilon.
+\]
 
+Let \(\epsilon>0\). Note that for any positive sequence \((\epsilon_{n})\), we have that:
+\begin{align*}
+\lambda ^2(H)&=\lambda ^{2} (\{y\} \times\Bbb{R}) \\
+&\leq \lambda ^2\bigg(\bigcup _{n\in \Bbb{N}}[y,y+\epsilon_{n})\times[-n,n) \bigg)\\
+&\leq \sum _{n=1}^\infty  \lambda ^2\Big([y,y+\epsilon_{n})\times[-n,n) \Big) \\
+&=\sum _{n=1}^\infty \epsilon_{n} 2n.
+\end{align*}
+So if we set \(\epsilon_{n}:=\frac{\epsilon}{2^n2n}\). Then \(\lambda ^2(H)<\epsilon.\)
+\end{enumerate}
+\end{proof}
+\newpage
+\begin{thm}[Problem 6.4i]
+Show that \(\lambda (a,b)=b-a\) for all \(a,b\in \Bbb{R},\space a\leq b\).
+\end{thm}
+
+\begin{proof}
+\begin{align*}
+\lambda (a,b) &=\lambda ([b-a)-\{b\}) \\
+&=\lambda [b,a)-\lambda \{b\} &&\text{T4.3iii} \\
+&=b-a-0 && \text{Problem 4.11i}
+\end{align*}
 \end{proof}
 
 \begin{defn}
@@ -146,40 +162,39 @@ A set \(A\subseteq \Bbb{R}^n\) is called \emph{bounded} if it can be contained i
 \end{defn}
 
 \begin{thm}[Problem 6.6a]
-Construct an open and unbounded set in \(\Bbb{R}\) with finite, strictly positive Lebesgue measure.
+Construct an open and unbounded set in \(\Bbb{R}\) with finite, strictly positive Lebesgue measure, i.e. \(0< \lambda(U)<\infty\).
 \end{thm}
 
 \begin{proof}
 Consider the set
 \[
-U:=\bigcup _{n=1}^\infty  \bigg(n-\frac{1}{2^n},n+\frac{1}{2^n}\bigg).
+U:=\bigcup _{n=1}^\infty  \bigg(n-\frac{1}{\epsilon_{n}},n+\frac{1}{\epsilon_{n}}\bigg).
 \]
 
-This is an open set, as it union of countable open sets. It is unbounded, for any \(B_{r}(0)\) we have that $r+1\in U$ and not in \(B_{r}(0)\). We have to show that it has finite lebesgue measure.
+This is an open set, as it union of countable open sets. It is unbounded, for any \(B_{r}(0)\) we have that $\left \lceil {r+1}\right \rceil \in U$ and not in \(B_{r}(0)\). We have to show that it has positive finite lebesgue measure.
 \begin{align*}
-\lambda (U)&=\bigcup _{n=1}^\infty  \bigg(n-\frac{1}{2^n},n+\frac{1}{2^n}\bigg)\\
-&=\sum _{n=1}^\infty \frac{2}{2^n}=2.
+\lambda (U)&=\bigcup _{n=1}^\infty  \bigg(n-\frac{1}{\epsilon_{n}},n+\frac{1}{\epsilon_{n}}\bigg)\\
+&=\sum _{n=1}^\infty \frac{2}{\epsilon_{n}}.
 \end{align*}
+So set \(\epsilon_{n}:=1/2^n.\) And we then have \(0<\lambda (U)=2<\infty .\)
+
 \end{proof}
 
 \begin{thm}[Problem 6.6ii]
-Construct an open, unbounded and connected set in \(\Bbb{R}\) with finite, strictly positive Lebesgue measure.
+Construct an open, unbounded and connected set in \(\Bbb{R}^2\) with finite, strictly positive Lebesgue measure.
 \end{thm}
 
 \begin{proof}
-Consider
+Let \((\epsilon_{n})\) be a positive sequence of real numbers. Consider
 \[
-U=\bigcup _{j\in \Bbb{N}}[0,0+\epsilon/(2^j))\times[-j,j)
+U=\bigcup _{n=1}^\infty  (0,\epsilon_{n})\times(-n,n).
 \]
+This is an open set, as it is an countable union of open sets. It is clearly connected and unbounded in the \(y\)-axis. We now have that
 then \begin{align*}
-\lambda ^2(U)&=\bigg(\bigcup _{j\in \Bbb{N}}(-\frac{1}{2^j},\frac{1}{2^j})\times(-j,j) \bigg)\\
-&\leq \sum _{j\in \Bbb{N}}\frac{4j}{2^j}
+\lambda ^2(U)&=\bigg(\bigcup _{n\in \Bbb{N}}(0,\epsilon_{n})\times(-n,n) \bigg)\\
+&\leq \sum _{n\in \Bbb{N}}\epsilon_{n}2n
 \end{align*}
-Note that
-\[
-\sum _{j\in \Bbb{N}}\frac{j}{2^j}
-\]
-converges.
+Set \(\epsilon_{n}:=\frac{1}{2^n2n}.\) Then \(\lambda ^2(U)=1\) is a positive finite real number.
 \end{proof}
 
 \begin{thm}[Problem 6.6iii]
@@ -235,7 +250,7 @@ Define for each \(A\subseteq [0,2)\) the family of countable \(\mathcal{A}\)-cov
 \]
 and set
 \[
-\mu ^*(A):=\text{inf}\bigg\{\sum _{j\in \Bbb{N}}\mu (S_{j}) : (S_{j})_{j\in \Bbb{N}}\in \mathcal{C}(A)\bigg\}.
+\mu ^*(A):=\inf\bigg\{\sum _{j\in \Bbb{N}}\mu (A_{j}) : (A_{j})_{j\in \Bbb{N}}\in \mathcal{C}(A)\bigg\}.
 \]
 
 Define \(\mathcal{A}^*:=\{A\subseteq [0,2): \mu ^*(B)=\mu ^*(B\cap A)+\mu ^*(B-A) \quad \forall B\subseteq X \}\)
@@ -256,7 +271,7 @@ Note that in T6.1 it is proven that:
   \item \(\mu ^*(A)=\mu (A)  \quad \forall A\in \mathcal{A}\)
   \item \(\mathcal{A}^*\) is a \(\sigma \)-algebra and \(\mu ^*\) is a measure on \(([0,2),\mathcal{A}^*)\)
 \end{itemize}
-
+\newpage
 \begin{proof}
 
 \begin{enumerate}

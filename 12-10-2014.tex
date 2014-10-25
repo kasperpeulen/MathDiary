@@ -168,19 +168,18 @@ By hypothesis, \(u_{j}\leq u\). So we have that \(u-u_{j}\) is a sequence of pos
 Let \((X,\mathcal{A}),(X',\mathcal{A}')\) be measurable spaces and let \(\mathcal{A}'=\sigma (\mathcal{G}').\) Then \(T:X\rightarrow X'\) is \(\mathcal{A}/\mathcal{A}'\)-measurable if and only if \(T^{-1}(\mathcal{G}')\subseteq \mathcal{A}.\)
 \end{prop}
 
-It suffices to show assume \(T^{-1}(\mathcal{G}')\subseteq \mathcal{A}\) and show that
+It suffices to assume \(T^{-1}(\mathcal{G}')\subseteq \mathcal{A}\) and show that
 \[
 T^{-1}(\mathcal{A})\subseteq \mathcal{A}.
 \]
-
-Consider \(\Sigma :=\{A'\subseteq X' : T^{-1}(A')\in \mathcal{A}\}\). We have that \(\mathcal{G}'\subseteq \Sigma \). It suffices to show that
+Consider \(\Sigma :=\{A'\subseteq X' : T^{-1}(A')\in \mathcal{A}\}\). We have that \(\mathcal{G}'\subseteq \Sigma \). To show that
 \[
-\mathcal{A}'\subseteq \Sigma .
+\mathcal{A}'\subseteq \Sigma ,
 \]
-It suffices to show that \(\Sigma \) is a \(\sigma \)-algebra.
+it suffices to show that \(\Sigma \) is a \(\sigma \)-algebra.
 
 \begin{enumerate}
-  \item To show that \(X'\in \Sigma \), it suffices to show that \(T^{-1}(X')\in \mathcal{A}\).
+  \item Showing that \(X'\in \Sigma \), is equivalent with showing that \(T^{-1}(X')\in \mathcal{A}\). Which holds as $T^{-1}(X')=X\in \mathcal{A}$.
   \item Showing that
 \[
 A'\in \Sigma  \Longrightarrow  A'^c\in \Sigma 
@@ -215,17 +214,17 @@ defines a measure on \((X',\mathcal{A}').\)
 \mu (T^{-1}(\varnothing ))=0 \qquad \checkmark
 \]
   \item Assume \((A_{j}')_{j\in \Bbb{N}}\subseteq \mathcal{A}'\) mutually disjoint sets and show that
-\[
-\mu '(\bigcup _{j\in \Bbb{N}}A_{j}')=\sum _{j\in \Bbb{N}}\mu '(A_{j}'),
-\]
-which is equivalent with showing that
-\[
-\mu (T^{-1}\Big(\bigcup _{j\in \Bbb{N}}A_{j}'\Big)=\sum _{j\in \Bbb{N}}\mu (T^{-1}(A_{j}')),
-\]
-which is equivalent with showing that
-\[
-\mu (T^{-1}\Big(\bigcup _{j\in \Bbb{N}}A_{j}'\Big)=\mu \Big(\bigcup _{j\in \Bbb{N}}T^{-1}(A_{j}')\bigg) \qquad \checkmark.
-\]
+\begin{align*}
+&\mu '\Big(\bigcup _{i=1}^nA_{i}'\Big)=\sum _{i=1}^n\mu '(A_{i}') \\
+&\Uparrow  \text{[by definition of $\mu '$]}\\
+&\mu (T^{-1}\Big(\bigcup _{i=1}^nA_{i}'\Big))=\sum _{i=1}^n\mu (T^{-1}(A_{i}'))\\
+&\Uparrow [\text{$T^{-1}$ commutes with set operations}] \\
+&\mu \Big(\bigcup _{i=1}^nT^{-1}(A_{i}')\Big)=\sum _{i=1}^n\mu (T^{-1}(A_{i}')) \\
+&\Uparrow [\text{$\mu $ is measure on $(X,\mathcal{A})$ and $T$ is $\mathcal{A}/\mathcal{A}'$ measurable, given}] \\
+&T^{-1}(A_{i}') \cap  T^{-1}(A_{j}')=\varnothing  \\
+&\Uparrow [T^{-1} \text{ commutes with set operations}] \\
+&A_{i}'\cap A_{j}'=\varnothing  \text{  [by hypothesis]}
+\end{align*}
 \end{enumerate}
 
 \end{proof}
@@ -237,7 +236,7 @@ F_\mu (x):=\begin{cases}\mu [0,x) &\text{ if }x>0 \\0 & \text{ if }x=0 \\ -\mu [
 
 \begin{enumerate}
   \item is monotonically increasing
-  \item left-continuous funciton
+  \item left-continuous function
 \end{enumerate}
 \end{thm}
 
