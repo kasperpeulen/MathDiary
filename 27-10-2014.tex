@@ -1,0 +1,215 @@
+\section{27-10-2014}
+\subsection{Measure Theory Chapter 9}
+
+\begin{prop}
+Given \(f\in \mathcal{E}^+.\) Let \(\sum _{j=0}^My_{j}1_{A_{j}}\) and \(\sum _{k=0}^{N}z_{k}1_{B_{k}}\) be two standard representations of \(f\). Then
+\[
+\sum _{j=0}^My_{j}\mu (A_{j})=\sum _{k=0}^Nz_{k}\mu (B_{k}).
+\]
+\end{prop}
+
+\begin{proof}
+\begin{gather*}
+\sum _{j=0}^My_{j}\mu (A_{j})=\sum _{k=0}^Nz_{k}\mu (B_{k}) \\
+\Uparrow \\
+\sum _{j=0}^My_{j} \sum _{k=0}^N\mu (A_{j}\cap B_{k})=\sum _{k=0}^Nz_{k} \sum _{j=0}^M\mu (A_{j}\cap B_{k})\\
+\Uparrow  \\
+y_{j}\mu (A_{j}\cap B_{k})=z_{k}\mu (A_{j}\cap B_{k}) \qquad \forall (j,k) \\
+\Uparrow  \\
+\sum _{j=0}^My_{j}1_{A_{j}}(x)=\sum _{k=0}^{N}z_{k}1_{B_{k}}(x) \qquad \forall x\in X
+\end{gather*}
+\end{proof}
+
+\begin{defn}
+Let \(f=\sum _{j=0}^My_{j}1_{A_{j}}\in \mathcal{E}^+\) be a simple function in standard representation. Then the number
+\[
+I_\mu (f):=\sum _{j=0}^My_{j}\mu (A_{j})\in [0,\infty ]
+\]
+is called the (\(\mu \)-)\emph{integral} of \(f\).
+\end{defn}
+
+\begin{prop}
+\[
+I_\mu (1_A)=\mu (A) \qquad \forall A\in \mathcal{A}
+\]
+\[
+I_\mu (\lambda f)=\lambda I_\mu (f) \qquad \forall \lambda \geq 0
+\]
+\end{prop}
+
+\begin{proof}
+\(I_\mu (f):=\sum _{j=0}^My_{j}\mu (A_{j})\in [0,\infty ]\) by definition.
+\end{proof}
+
+\begin{prop}
+\[
+f,g\in \mathcal{E}^+ \Longrightarrow  I_\mu (f+g)=I_\mu (f)+I_\mu (g)
+\]
+\end{prop}
+
+\begin{proof}
+\begin{gather*}
+I_\mu (f+g)=I_\mu (f)+I_\mu (g) \\
+\Uparrow  \\
+I_\mu \Big(\sum _{j=0}^My_{j}1_{A_{j}}(x)+\sum _{k=0}^{N}z_{k}1_{B_{k}}(x)\Big)=I_\mu \Big(\sum _{j=0}^My_{j}1_{A_{j}}(x)\Big)+I_\mu \Big(\sum _{k=0}^{N}z_{k}1_{B_{k}}\Big)\\
+\Uparrow \\
+\sum _{j=0}^M\sum _{k=0}^N(y_{j}+z_{k})\mu (A_{j}\cap B_{k})=\sum _{j=0}^My_{j}\mu (A_{j})+\sum _{k=0}^Nz_{k}\mu (B_{k}) \\
+\Uparrow  \\
+\sum _{j=0}^M\sum _{k=0}^N(y_{j}+z_{k})\mu (A_{j}\cap B_{k})=\sum _{j=0}^My_{j} \sum _{k=0}^N\mu (A_{j}\cap B_{k})+\sum _{k=0}^Nz_{k} \sum _{j=0}^M\mu (A_{j}\cap B_{k})\\ 
+\end{gather*}
+\end{proof}
+\newpage
+\begin{prop}
+\[
+f\leq g \Longrightarrow I_\mu (f)\leq I_\mu (g)
+\]
+\end{prop}
+
+\begin{proof}
+\begin{align*}
+I_\mu (f)&\leq I_\mu (g) \\
+&\Uparrow [g-f\in \mathcal{E}^+] \\
+I_\mu (f)&\leq  I_\mu (f)+I_\mu (g-f)
+\end{align*}
+\end{proof}
+
+\begin{defn}
+Let \((X,\mathcal{A},\mu )\) be a measure space. The \(\mu \)-integral of a positve numerical function \(u\in \mathcal{M}_{\bar{\Bbb{R}^+}}\) is given by
+\[
+\int  u\  d\mu  : = \sup\{I_\mu (g):g\leq u, g\in \mathcal{E}^+\}\in [0,\infty ].
+\]
+If we need to emphasize the \emph{integration variable}, we also write \(\int  u(x) \mu (dx)\) or \(\int u(x)d\mu (x).\)
+\end{defn}
+
+\begin{prop}
+For all \(f\in \mathcal{E}^+\) we have \(\int fd\mu =I_\mu (f).\)
+\end{prop}
+
+\begin{proof}
+\begin{gather*}
+\int fd\mu =I_\mu (f) \\
+\Uparrow \\
+\sup\{I_\mu (g):g\leq f, g\in \mathcal{E}^+\}=I_\mu (f) \\
+\Uparrow  \\
+I_\mu (f)\leq \sup\{I_\mu (g):g\leq f, g\in \mathcal{E}^+\}\leq I_\mu (f)\\
+\Uparrow \\
+g\leq f \Longrightarrow  I_\mu (g)\leq I_\mu (f)
+\end{gather*}
+\end{proof}
+
+
+
+\begin{prop}
+Let \((X,\mathcal{A})\) be a measurable space. Let \(\mu =\delta _{y}\) be the Dirac measure for fixed \(y\in X.\) Show that
+\[
+\int u\  d\delta _{y}=u(y) \qquad \forall u\in \mathcal{M}_{\bar{\Bbb{R}}}^+.
+\]
+\end{prop}
+
+\begin{proof}
+By theorem 8.8, there exists increasing function \((f_{j})_{j\in \Bbb{N}}\subseteq \mathcal{E}^+\) with \(f_{j}\leq u\) and \(\lim_{j\rightarrow \infty }f_{j}=u.\) Therefore:
+\begin{gather*}
+\int u\  d\delta _{y}=u(y)\\
+\Uparrow  \\
+\int \lim_{j\rightarrow \infty }f_{j}\  d\delta _{y} =\lim_{j\rightarrow \infty }f_{j}(y)\\
+\Uparrow  \\
+\lim_{j\rightarrow \infty } \int f_{j}\  d\delta _{y} = \lim_{j\rightarrow \infty }f_{j}(y) \\
+\Uparrow  \\
+\int f_{j}\  d\delta _{y} = f_{j}(y) \qquad \forall j\in \Bbb{N}\\
+\Uparrow  \\
+\sum _{k=0}^N y_{k_{j}}\  \delta _{y}(A_{k_{j}}) = f_{j}(y) \qquad \forall j\in \Bbb{N}
+\end{gather*}
+\end{proof}
+
+
+\begin{thm}
+Let \((u_{j})_{j\in \Bbb{N}}\subseteq \mathcal{M}_{\Bbb{R}\bar{}}^+\) be a sequence of positive measurable functions. Then \(u:=\lim\inf_{j\rightarrow \infty }u_{j}\) is measurable and
+\[
+\int  \lim\inf_{j\rightarrow \infty } u_{j}\  d\mu  \leq  \lim\inf_{j\rightarrow \infty } \int u_{j}\  d\mu 
+\]
+\end{thm}
+
+\begin{proof}
+Recall that
+\(\lim\inf_{j\rightarrow \infty }u_{j} =\sup_{k\in \Bbb{N}}\inf_{j\geq k} u_{j}.\) Therefore:
+\begin{gather*}
+\int  \lim\inf_{j\rightarrow \infty } u_{j}\  d\mu  \leq  \lim\inf_{j\rightarrow \infty } \int u_{j}\  d\mu \\
+\Uparrow \\
+\int \sup_{k\in \Bbb{N}}\inf_{j\geq k} u_{j}\  d\mu  \leq  \sup_{k\in \Bbb{N}}\inf_{j\geq k} \int u_{j}\  d\mu  \\
+\Uparrow \text{T9.6}\\
+\sup_{k\in \Bbb{N}}\int \inf_{j\geq k} u_{j}\  d\mu  \leq  \sup_{k\in \Bbb{N}}\inf_{j\geq k} \int u_{j}\  d\mu  \\
+\Uparrow \\
+\int \inf_{j\geq k} u_{j}\  d\mu  \leq  \inf_{l\geq k} \int u_{l}\  d\mu  \qquad \forall k\in \Bbb{N} \\
+\Uparrow  \\
+\int \inf_{j\geq k} u_{j}\  d\mu  \leq  \int u_{l}\  d\mu  \qquad \forall l\geq k \\
+\Uparrow  \\
+\inf_{j\geq k} u_{j}\   \leq  u_{l} \qquad \forall l\geq k
+\end{gather*}
+\end{proof}
+
+\begin{thm}
+Let \((X,\mathcal{A},\mu )\) be a measure space. For an increasing sequence of numerical functions \((f_{j})_{j\in \Bbb{N}}\subseteq \mathcal{M}_{\bar{\Bbb{R}}}^+\) where \(0\leq f_{j}\leq f_{j+1}\leq \ldots ,\) we have
+\[
+\int \sup_{j\in \Bbb{N}}f_{j}\  d\mu =\sup_{j\in \Bbb{N}}\int f_{j}\  d\mu 
+\]
+and
+\[
+\int \lim_{j\rightarrow \infty }f_{j}\  d\mu =\lim_{j\rightarrow \infty }\int f_{j}\  d\mu .
+\]
+\end{thm}
+
+\begin{thm}
+Let \((u_{j})_{j\in \Bbb{N}}\subseteq \mathcal{M}_{\bar{\Bbb R^+}}.\) Then \(\sum _{j=1}^\infty u_{j}\) is measurable and we have
+\[
+\int  \sum _{j=1}^\infty u_{j}d\mu  = \sum _{j=1}^\infty  \int u_{j}\  d\mu .
+\]
+\end{thm}
+
+\subsection{Measure Theory Chapter 10}
+\begin{defn}
+A function \(u:X\rightarrow \bar{\Bbb{R}}\) on a measure space \((X,\mathcal{A},\mu )\) is said to (\(\mu \)-)-integrable, if it is \(\mathcal{A}/\bar{\mathcal{B}}\)-measurable and if the integrals \(\int u^+ d\mu ,\int u^- d\mu <\infty \) are finite. In this case we call
+\[
+\int u\  d\mu :=\int u^+ d\mu - \int u^- d\mu  \in (-\infty ,\infty )
+\]
+the \(\mu \)-integral of \(u.\)
+\end{defn}
+
+\begin{defn}
+We write \(\mathcal{L}^1(\mu )\  [\mathcal{L}_{\bar{\Bbb{R}}}^1(\mu )]\) for the set of all real-valued [numerical] \(\mu \)-integrable functions.
+\end{defn}
+
+\begin{thm}
+Let \(u\in \mathcal{M}_{\bar{\Bbb{R}}}.\) Then the following conditions are equivalent:
+
+\begin{enumerate}
+  \item \(u\in \mathcal{L}_{\bar{\Bbb{R}}}^1(\mu )\)
+  \item \(u^+,u^-\in \mathcal{L}_{\bar{\Bbb{R}}}^1(\mu )\)
+  \item \(|u| \in  \mathcal{L}_{\bar{\Bbb{R}}}^1(\mu )\)
+  \item \(\exists w\in \mathcal{L}_{\bar{\Bbb{R}}}^1(\mu ),\  w\geq 0 \text{ such that } |u|\leq w\)
+\end{enumerate}
+	
+\end{thm}
+
+\begin{proof}
+\begin{gather*}
+u\in \mathcal{L}_{\bar{\Bbb{R}}}^1(\mu )\  \Longleftrightarrow \  u^\pm \in \mathcal{L}_{\bar{\Bbb{R}}}(\mu ) \\
+\Updownarrow \\
+u\in \mathcal{M}_{\Bbb{R}}^+\  \wedge \  \int   u ^\pm d\mu <\infty \  \Longleftrightarrow \  u^\pm \in \mathcal{M}_{\bar{\Bbb{R}}}^+\   \wedge \  \int   u ^\pm \  d\mu <\infty 
+\end{gather*}
+\begin{gather*}
+u^\pm \in \mathcal{L}_{\bar{\Bbb{R}}}(\mu )\  \Longrightarrow \  |u|\in \mathcal{L}_{\bar{\Bbb{R}}}(\mu )\\
+\Updownarrow  \\
+u^\pm \in \mathcal{L}_{\bar{\Bbb{R}}}(\mu )\  \Longrightarrow \  u^+ + u^- \in \mathcal{L}_{\bar{\Bbb{R}}}(\mu )\\
+\Updownarrow  \\
+u^\pm \in \mathcal{M}_{\bar{\Bbb{R}}}^+\   \text{ and }\  \int u^\pm \  d\mu <\infty \  \Longrightarrow u^+ + u^-\in \mathcal{M}_{\bar{\Bbb{R}}}^+\   \text{ and }\  \int u^+ + u^-\  d\mu <\infty 
+\end{gather*}
+\(3\Rightarrow 4\) is obvious
+\begin{gather*}
+\exists w\geq 0\in \mathcal{L}_{\bar{\Bbb{R}}}^1(\mu ):|u|\leq w\  \Longrightarrow \  u^\pm \in \mathcal{L}_{\bar{\Bbb{R}}}(\mu ) \\
+\Uparrow  \\
+\int u^{\pm } d\mu <\infty  \\
+\Uparrow  \\
+u^\pm \leq w
+\end{gather*}
+\end{proof}
+
