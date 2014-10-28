@@ -1,0 +1,297 @@
+\section{28-10-2014}
+\subsection{Measure Theory Chapter 10}
+
+\begin{prop}
+\[
+u\in \mathcal{M}_{\bar{\Bbb{R}}}\  \Longleftrightarrow \  u^\pm \in \mathcal{M}_{\bar{\Bbb{R}}}^+
+\]
+\end{prop}
+
+\begin{defn}
+A function \(u:X\rightarrow \bar{\Bbb{R}}\) on a measure space \((X,\mathcal{A},\mu )\) is said to be \(\mu \)-integrable, if
+
+\begin{enumerate}
+  \item \(u\in \mathcal{M}_{\bar{\Bbb{R}}}\)
+  \item \(\int  u^\pm \  d\mu  <\infty \)
+\end{enumerate}
+
+We write \(\mathcal{L}^{1}_{\bar{\Bbb{R}}}(\mu )\) for the set of all numerical \(\mu \)-integrable functions.
+\end{defn}
+
+\begin{defn}
+If $u\in \mathcal{L}^{1}_{\bar{\Bbb{R}}}(\mu )$, then we call
+\[
+\int u\  d\mu :=\int u^+d\mu -\int u^- d\mu 
+\]
+the \(\mu \)-integral of \(u\).
+\end{defn}
+
+\begin{prop}
+For \(u\geq 0\) we have
+\[
+u\in \mathcal{L}_{\bar{\Bbb{R}}}^1(\mu )\  \Longleftrightarrow \  u\in \mathcal{M}_{\bar{\Bbb{R}}}^+\  \text{ and }\  \int u\  d\mu <\infty 
+\]
+\end{prop}
+
+\begin{prop}
+Given \(u\in \mathcal{M}_{\bar{\Bbb{R}}}\).
+\[
+\int  |u|\  d\mu  <\infty  \Longleftrightarrow \  u\in \mathcal{L}_{\bar{\Bbb{R}}}^1(\mu )
+\]
+\end{prop}
+\begin{thm}
+Let \((X,\mathcal{A},\mu )\) be a measure space and \(u,v\in \mathcal{L}_{\bar{\Bbb{R}}}^1(\mu )\) and \(\alpha \in \Bbb{R}\). Then
+
+\begin{enumerate}
+  \item \(\alpha u \in  \mathcal{L}_{\Bbb{R}}^1(\mu )\) and \(\int \alpha u\  d\mu  = \alpha \int  u\  d\mu \)
+  \item \(u+v\in \mathcal{L}_{\bar{\Bbb{R}}}^1(\mu )\) and \(\int (u+v)\  d\mu = \int u\  d\mu + \int v\  d\mu \)
+  \item \(\min\{u,v\},\max\{u,v\}\in \mathcal{L}_{\bar{\Bbb{R}}}^1(\mu )\)
+  \item \(u\leq v\  \Longrightarrow \  \int u\  d\mu \leq  \int v\  d\mu \)
+  \item \(|\int u\  d\mu |\leq \int |u| d\mu \)
+\end{enumerate}
+
+\end{thm}
+
+\begin{proof}
+\begin{gather*}
+\alpha u \in  \mathcal{L}_{\Bbb{R}}^1(\mu ) \\
+\Uparrow  \\
+\int  |au|\  d\mu <\infty \\
+\Uparrow  \\
+|a|\int  |u|\  d\mu <\infty  \\
+\Uparrow  \\
+|u| \in \mathcal{L}_{\bar{\Bbb{R}}}^{1}
+\end{gather*}
+\begin{gather*}
+u+v\in \mathcal{L}_{\bar{\Bbb{R}}}^{1} \\
+\Uparrow  \\
+\int  |u+v|\  d\mu  <\infty \\
+\Uparrow  \\
+\int  |u|+|v|\  d\mu  <\infty 
+\end{gather*}
+\begin{gather*}
+\min\{u,v\} \in \mathcal{L}_{\bar{\Bbb{R}}}^{1} \\
+\Uparrow  \\
+\int  |\min\{u,v\}|\  d\mu <\infty  \\
+\Uparrow  \\
+\int  |u|+|v|\  d\mu  <\infty 
+\end{gather*}
+\end{proof}
+
+\begin{prop}
+On \((X,\mathcal{A},\delta _{y})\) where \(y\in X\) fixed, we have \(\int u(x)\delta _{y}(dx)=u(y)\) and
+\[
+u\in \mathcal{L}_{\bar{\Bbb{R}}}^1(\delta _{y})\  \Longleftrightarrow \  u\in \mathcal{M}_{\bar{\Bbb{R}}}\   \text{ and }\  |u(y)|<\infty 
+\]
+\end{prop}
+
+\begin{prop}
+Let \((\Omega ,\mathcal{A},P)\) be a probability space. Then every bounded measurable function (random variable) \(\xi \in \mathcal{M}(\mathcal{A})\) with \(S:=\sup_{\omega \in \Omega }|\xi (\omega )|<\infty \) is \(P\)-integrable.
+\end{prop}
+
+\begin{proof}
+\begin{gather*}
+\xi \in \mathcal{L}_{\Bbb{R}}^1(P) \\
+\Uparrow  \\
+\int  |\xi |\  dP <\infty  \\
+\Uparrow  \\
+\int  S\  dP <\infty  \\
+\Updownarrow \\
+S\int  1_\Omega \  dP <\infty 
+\end{gather*}
+\end{proof}
+
+\begin{defn}
+Let \((X,A,\mu )\) be a measure space and \(u\in \mathcal{L}_{\bar{\Bbb{R}}}^1(\mu )\) or \(u\in \mathcal{M}_{\bar{\Bbb{R}}}^+(\mathcal{A}).\) Then
+\[
+\int _A u\  d\mu :=\int  1_Au\  d\mu =\int 1_A(x)u(x)\mu (dx) \qquad \forall A\in \mathcal{A}
+\]
+\end{defn}
+
+\begin{prop}
+\[
+\int _X u\  d\mu  = \int  u\  d\mu 
+\]
+\end{prop}
+
+\begin{thm}
+On the measure space \((X,\mathcal{A},\mu )\) let \(u\in \mathcal{M}^+.\) The set-function
+\[
+\nu : A \mapsto  \int _A u\  d\mu =\int 1_A u\  d\mu  \qquad A\in \mathcal{A}
+\]
+is a measure on \((X,\mathcal{A}).\) It is called the measure with density (function) \(u\) with respect to \(\mu \) and denoted by \(\nu =u\mu .\)
+\end{thm}
+
+\begin{defn}
+If \(\nu \) has a density function w.r.t. \(\mu \) one writes tradionionally \(d\nu /d\mu \) for the density function. This notation is to be understood in a purely symbolical way.
+\end{defn}
+
+\begin{defn}
+Let \((X,\mathcal{A},\mu )\) be a measure space. A \(\mu \)-null set \(N\in \mathcal{N}_\mu \) is a measurable set \(N\in \mathcal{A}\) satisfying
+\[
+N\in \mathcal{N}_\mu  \Longleftrightarrow \  N\in \mathcal{A}\quad \text{and}\quad \mu (N)=0.
+\]
+\end{defn}
+
+\begin{defn}
+If a property \(\Pi (x)\) is true for all \(x\in X\) apart from some \(x\) contained in a null set \(N\in \mathcal{N}_\mu ,\) we say that \(\Pi (x)\) holds a.e. (allmost everyhwere).
+\end{defn}
+
+\begin{thm}
+Let \(u\in \mathcal{L}_{\bar{\Bbb{R}}}^1(\mu )\) be a numerical integrable function on a measure sapce \((X,\mathcal{A},\mu )\). Then
+
+\begin{enumerate}
+  \item \(\int |u|\  d\mu =0\  \Longleftrightarrow \  |u|=0\  \  a.e.\  \  \Longleftrightarrow \  \mu (\{u\neq 0\})=0\)
+  \item \(\int _N u\  d\mu =0 \quad \forall N\in \mathcal{N}_\mu \)
+\end{enumerate}
+
+\end{thm}
+
+\begin{thm}
+Let \(u,v\in \mathcal{M}_{\bar{\Bbb{R}}}\) such that \(u=v\) \(\mu \)-a.e. Then
+
+\begin{enumerate}
+  \item \(u,v\geq 0\  \Longrightarrow \   \int u\  d\mu =\int  v\  d\mu \)
+  \item \(u\in \mathcal{L}_{\bar{\Bbb{R}}}^1(\mu )\  \Longrightarrow \  v\in \mathcal{L}_{\bar{\Bbb{R}}}^1(\mu )\quad \text{and}\quad \int u\  d\mu = \int  v d\mu \)
+\end{enumerate}
+\end{thm}
+
+
+\begin{proof}
+\begin{gather*}
+\int u\  d\mu =\int  v\  d\mu  \\
+\Uparrow \\
+\int _{\{u=v\}} u\  d\mu  + \int _{\{u\neq v\}} u\  d\mu  = \int _{\{u=v\}} v\  d\mu  + \int _{\{u\neq v\}} v\  d\mu  \\
+\Uparrow \\
+\int _{\{u=v\}} u\  d\mu  = \int _{\{u=v\}} v\  d\mu  
+\end{gather*}
+\begin{gather*}
+\int u\  d\mu = \int  v\  d\mu  \\
+\Uparrow  \\
+\int v^\pm \  d\mu  = \int u^\pm \  d\mu  < \infty  \\
+\Uparrow  [\text{apply 1}] \\
+u^\pm  = v^\pm \  a.e. \\
+\Uparrow  \\
+u=v\  a.e.
+\end{gather*}
+\end{proof}
+
+\begin{thm}
+If \(u\in \mathcal{M}_{\bar{\Bbb{R}}}\) and \(v\in \mathcal{L}_{\bar{\Bbb{R}}}^1(\mu ), v\geq 0\) then
+\[
+|u|\leq v\quad a.e.\  \Longrightarrow \  u\in \mathcal{L}_{\bar{\Bbb{R}}}^1(\mu ).
+\]
+\end{thm}
+
+\begin{prop}
+For all \(u\in \mathcal{L}_{\bar{\Bbb{R}}}^1(\mu ), A\in \mathcal{A}\) and \(c>0\)
+\[
+\mu (\{|u|\geq c\} \cap A) \leq  1/c \int _A |u|d\mu .
+\]
+\end{prop}
+
+\begin{thm}
+If \(u\in \mathcal{L}_{\bar{\Bbb{R}}}^1(\mu )\), then \(u\) is almost everywhere \(\Bbb{R}\)-valued. In particular, we can find a version \(\tilde{u}\in \mathcal{L}^1(\mu )\) such that \(\tilde{u}=u\) a.e. and \(\int \tilde{u} d\mu =\int  u d\mu .\)
+\end{thm}
+
+\begin{thm}
+Let \(\mathcal{G}\subseteq \mathcal{A}\) be a sub-\(\sigma \)-algebra.
+
+\begin{enumerate}
+  \item If \(u,v\in \mathcal{L}^1(\mathcal{G})\) and if \(\int _G u d\mu  = \int _Gwd\mu \) for all \(G\in \mathcal{G}\), then \(u=w\) \(\mu \)
+-a.e.
+  \item If \(u,w\in \mathcal{M}^+(\mathcal{G})\) and if \(\int _G u d\mu  =\int _G w d\mu \) for all \(G\in \mathcal{G}\), then \(u=w\) \(\mu \)-a.e. under the additional assumption that \(\mu |_\mathcal{G}\) is \(\sigma \)-finite.
+\end{enumerate}
+\end{thm}
+
+
+\begin{prop}
+\[
+\int _N u\  d\mu =0 \quad  \forall N\in \mathcal{N}_\mu 
+\]
+\end{prop}
+
+\begin{proof}
+\begin{gather*}
+\int _N u\  d\mu =0 \\
+\Uparrow  \\
+|\int _N u\  d\mu |\leq 0 \\
+\Uparrow  \\
+\int  1_N |u|\  d\mu \leq 0 \\
+\Uparrow  \\
+\sup_{j\in \Bbb{N}}\int  j\  1_N\  d\mu =0
+\end{gather*}
+\end{proof}
+
+\begin{prop}
+\[
+|u|=0\  a.e.\  \Longleftrightarrow \  \mu \{u\neq 0\}=0
+\]
+\end{prop}
+
+\begin{proof}
+\begin{gather*}
+|u|=0\  a.e. \\
+\Updownarrow  \\
+\{x : |u(x)|\neq 0 \} \in  \mathcal{N}_\mu  \\
+\Updownarrow  \\
+\mu \{u\neq 0\}=0
+\end{gather*}
+\end{proof}
+
+\begin{prop}
+\[
+|u|=0 \  a.e.\  \Longrightarrow \  \int |u|\  d\mu =0
+\]
+\end{prop}
+
+\begin{proof}
+\begin{gather*}
+\int |u|\  d\mu =0 \\
+\Uparrow  \\
+\nu (X)=0 \\
+\Uparrow  \\
+\nu (\{u\neq 0\}\cup \{u=0\})=0\\
+\Uparrow  \\
+\nu (\{u\neq 0\})+\nu (\{u=0\})=0 \\
+\Uparrow  \\
+\int _{\{u\neq 0\}}|u| d\mu  +\int _{\{u=0\}}|u| d\mu  =0 \\
+\Uparrow  \\
+\{u\neq 0\}\in \mathcal{N}_\mu  \\
+\Uparrow  \\
+|u|=0 \  a.e.
+\end{gather*}
+\end{proof}
+
+\begin{prop}
+\[
+\int |u|\  d\mu =0\  \Longrightarrow  \mu \{u\neq 0\}=0
+\]
+\end{prop}
+
+\begin{proof}
+\begin{gather*}
+\mu \{u\neq 0\}=0 \\
+\Uparrow  \\
+\mu \{|u|>0\}=0 \\
+\Uparrow  \\
+\mu \Big(\bigcup _{j\in \Bbb{N}}\{|u|\geq \tfrac{1}{j}\}\Big)=0 \\
+\Uparrow \\
+\mu \Big(\{|u|\geq \tfrac{1}{j}\}\Big)=0 \qquad \forall  j\in \Bbb{N} \\
+\Uparrow [\text{Markov Inequality}] \\
+j \int _X |u|\  d\mu  =0
+\end{gather*}
+\end{proof}
+
+\begin{prop}
+\[
+\mu (\{u\geq c\}\cap A)\leq \frac{1}{c} \int _A |u(x)|\mu (dx)
+\]
+\end{prop}
+
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Given:}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+hallo
+\end{minipage}

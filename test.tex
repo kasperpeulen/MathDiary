@@ -92,16 +92,61 @@
 fill = white,
 text = black}}
 
+\usepackage[top=0.2in, bottom=0.52in, left=0.2in, right=0.2in]{geometry}
+
+
+\newenvironment{noindlist}
+ {\begin{list}{\labelitemi}{\leftmargin=0em \itemindent=0em}}
+ {\end{list}}
+
+\usepackage{enumitem}
+\usepackage{framed}
+
+\setlist[itemize]{leftmargin=0.5cm,itemsep=0.1cm}
+
+\newenvironment{given}
+{\begin{framed}\textbf{Given}\vspace{0.05in}}
+{\end{framed}}
+
+\newenvironment{random}
+{\begin{framed}\textbf{Random:}}
+{\end{framed}}
+
+\newenvironment{tools}
+{\begin{framed}\textbf{Tools}\vspace{0.05in}}
+{\end{framed}}
+
 \begin{document}
 
-%\tableofcontents
-%\clearpage
+\begin{minipage}[t]{0.40\textwidth}
 
-%\include{27-10-2014}
-\include{28-10-2014}
+\begin{given}
+\begin{itemize}
+\item  \(f\in \mathcal{E}^+.\)
+\item  \(\sum _{j=0}^My_{j}1_{A_{j}}\) and \(\sum _{k=0}^{N}z_{k}1_{B_{k}}\) are two standard representations of \(f\) 
+\end{itemize}
+\end{given}
 
+\begin{tools} \\
+\(\displaystyle
+A_{i}\cap A_{j} = \varnothing \  \Longrightarrow \  \sum _{k=0}^\infty  \mu (A_{j})= \mu \Big(\bigcup _{j=1}^\infty  A_{j}\Big)
+\)
+\end{tools}
 
+\end{minipage}
+\begin{minipage}[t]{0.60\textwidth}
+\begin{gather*}
+\boxed{\sum _{j=0}^My_{j}\mu (A_{j})=\sum _{k=0}^Nz_{k}\mu (B_{k})} \\
+\Uparrow \\
+\sum _{j=0}^My_{j} \sum _{k=0}^N\mu (A_{j}\cap B_{k})=\sum _{k=0}^Nz_{k} \sum _{j=0}^M\mu (A_{j}\cap B_{k})\\
+\Uparrow  \\
+y_{j}\mu (A_{j}\cap B_{k})=z_{k}\mu (A_{j}\cap B_{k}) \qquad \forall (j,k) \\
+\Uparrow  \\
+\sum _{j=0}^My_{j}1_{A_{j}}(x)=\sum _{k=0}^{N}z_{k}1_{B_{k}}(x) \qquad \forall x\in X
+\end{gather*}
+\end{minipage}
 
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
 
 
 \end{document}
