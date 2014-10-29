@@ -1,0 +1,317 @@
+\begin{minipage}[t]{0.45\textwidth}
+
+\begin{given}
+\begin{itemize}
+\item  Let \((X,\mathcal{A},\mu )\) be a measure space.
+\item  Let \((u_{j})_{j\in \Bbb{N}}\subseteq \mathcal{L}^1(\mu )\) be an increasing sequence of integrable functions \(u_{1}\leq u_{2}\leq \ldots \) with limit \(u:=\sup_{j\in \Bbb{N}}u_{j}.\)
+\end{itemize}
+\end{given}
+
+\begin{tools}\\
+\(\displaystyle
+(u_{j}\uparrow )\subseteq \mathcal{M}_{\bar{\Bbb{R}}}^+\Rightarrow \int \sup_{j\in \Bbb{N}}u_{j}\  d\mu =\sup_{j\in \Bbb{N}}\int u_{j}\  d\mu 
+\)
+\end{tools}
+
+
+\begin{assume} \\
+\(\displaystyle \sup_{j\in \Bbb{N}} u_{j}\in \mathcal{L}^1(\mu) \)
+\end{assume}
+
+
+\end{minipage}
+\begin{minipage}[t]{0.55\textwidth}
+\vspace{-0.2in}
+\begin{gather*}
+\boxed{\sup_{j\in \Bbb{N}} \int  u_{j}\  d\mu  <\infty } \\
+\Uparrow \\
+\sup_{j\in \Bbb{N}} \int  u_{j}\  d\mu  =  \int \sup_{j\in \Bbb{N}} u_{j}\  d\mu   \\
+\Uparrow  \\
+\sup_{j\in \Bbb{N}}\bigg(\int  u_{j}\  - u_{1}\  d\mu \bigg) + \int  u_{1}\   d\mu  =  \int \sup_{j\in \Bbb{N}} u_{j}\  d\mu   \\
+\Uparrow \\
+\int \sup_{j\in \Bbb{N}} (u_{j}\  - u_{1})\  d\mu   + \int  u_{1}\   d\mu  = \int \sup_{j\in \Bbb{N}} u_{j}\  d\mu   \\
+\end{gather*}
+\end{minipage}
+
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+
+\begin{minipage}[t]{0.45\textwidth}
+\begin{given}
+\begin{itemize}
+\item  Let \((X,\mathcal{A},\mu )\) be a measure space.
+\item  Let \((u_{j})_{j\in \Bbb{N}}\subseteq \mathcal{L}^1(\mu )\) be an increasing sequence of integrable functions \(u_{1}\leq u_{2}\leq \ldots \) with limit \(u:=\sup_{j\in \Bbb{N}}u_{j}.\)
+\end{itemize}
+\end{given}
+
+\begin{tools}\\
+\(\displaystyle
+(u_{j}\uparrow )\subseteq \mathcal{M}_{\bar{\Bbb{R}}}^+\Rightarrow \int \sup_{j\in \Bbb{N}}u_{j}\  d\mu =\sup_{j\in \Bbb{N}}\int u_{j}\  d\mu 
+\)
+\end{tools}
+\begin{assume} \\
+\(\displaystyle \sup_{j\in \Bbb{N}} \int  u_{j}\  d\mu  <\infty  \)
+\end{assume}
+\end{minipage}
+\begin{minipage}[t]{0.55\textwidth}
+\vspace{-0.2in}
+\begin{gather*}
+\boxed{\sup_{j\in \Bbb{N}} u_{j} \in \mathcal{L}^1(\mu )} 
+\\ \Uparrow  \\
+\int  \sup_{j\in \Bbb{N}} u_{j}\  d\mu  <\infty  \\
+\Uparrow  \\
+\int \sup_{j\in \Bbb{N}} u_{j}\  d\mu  = \sup_{j\in \Bbb{N}} \int  u_{j}\  d\mu   \\
+\Uparrow  \\
+\int \sup_{j\in \Bbb{N}} (u_{j}\  - u_{1})\  d\mu   + \int  u_{1}\   d\mu  = \sup_{j\in \Bbb{N}} \int  u_{j}\  d\mu  \\
+\Uparrow \\
+\sup_{j\in \Bbb{N}}\bigg(\int  u_{j}\  - u_{1}\  d\mu \bigg)+ \int  u_{1}\   d\mu  = \sup_{j\in \Bbb{N}} \int  u_{j}\  d\mu   \\
+\end{gather*}
+\end{minipage}
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+
+\newpage
+
+\begin{minipage}[t]{0.45\textwidth}
+\begin{given}
+\begin{itemize}
+\item  Let \((X,\mathcal{A},\mu )\) be a measure space.
+\item  Let \((v_{k})_{k\in \Bbb{N}}\subseteq \mathcal{L}^1(\mu )\) be a decreasing sequence of integrable functions \(v_{1}\geq v_{2}\geq  \ldots  \) with limit \(v:=\inf_{k\in \Bbb{N}} v_k.\)
+\end{itemize}
+\end{given}
+
+\begin{tools}
+\begin{itemize}
+\item \(\displaystyle
+\inf_{j\in \Bbb{N}} f_{j}(x) = - \sup_{j\in \Bbb{N}} (-f_{j}(x))
+\)
+\item \(\displaystyle \sup_{j\in \Bbb{N}} u_{j} \in  \mathcal{L}^1(\mu )\ \Longleftrightarrow \  \sup_{j\in \Bbb{N}} \int  u_{j} d\mu <\infty  \) 
+
+if  \( (u_{j}\uparrow )_{j\in \Bbb{N}}\subseteq \mathcal{L}^1(\mu ) 
+\)
+
+
+\end{itemize}
+\end{tools}
+
+\end{minipage}
+\begin{minipage}[t]{0.55\textwidth}
+\vspace{-0.1in}
+\begin{gather*}
+\boxed{\inf_{j\in \Bbb{N}} v_{j} \in  \mathcal{L}^1(\mu )\  \Longleftrightarrow \  \inf_{j\in \Bbb{N}} \int  v_{j} d\mu <\infty } \\
+\Uparrow  \\
+-\sup_{j\in \Bbb{N}} -v_{j} \in  \mathcal{L}^1(\mu )\  \Longleftrightarrow \  -\sup_{j\in \Bbb{N}} \int  -v_{j} d\mu <\infty \\
+\Uparrow  \\
+\sup_{j\in \Bbb{N}} -v_{j} \in  \mathcal{L}^1(\mu )\  \Longleftrightarrow \  \sup_{j\in \Bbb{N}} \int  -v_{j}\  d\mu <\infty  \\
+\Uparrow  \\
+(-v_{j} \uparrow )_{j\in \Bbb{N}} \subseteq \mathcal{L}^1(\mu )
+\end{gather*}
+\end{minipage}
+
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+
+\begin{minipage}[t]{0.46\textwidth}
+\begin{given}
+\begin{itemize}
+\item  Let \((X,\mathcal{A},\mu )\) be a measure space.
+  \item \((u_{j})_{j\in \Bbb{N}}\subseteq \mathcal{L}^1(\mu ): |u_{j}|\leq w\) for some \(w\in \mathcal{L}_{+}^1(\mu )\)
+  \item \(u(x):=\lim_{j\rightarrow \infty }u_{j}(x)\) exists for a.e. \(x\in X\)
+\end{itemize}
+\end{given}
+
+\begin{tools}
+\begin{itemize}
+\item \(\displaystyle
+\liminf_{j\rightarrow \infty } (-f_{j}) = -\limsup_{j\rightarrow \infty } f_{j}
+\)\\
+\item \(
+\big(u\in \mathcal{M}_{\bar{\Bbb{R}}},v\in \mathcal{L}_{+}^1(\mu ): |u|\leq v\  a.e.\big) \\ \Longrightarrow u\in \mathcal{L}^1(\mu )
+\)\\
+\item \(\displaystyle
+(u_{j})\subseteq \mathcal{M}_{\bar{\Bbb{R}}}^+  \Longrightarrow  \\\int  \liminf_{j\rightarrow \infty } u_{j} d\mu \leq  \liminf_{j\rightarrow \infty }\int u_{j} d\mu 
+\)
+
+\end{itemize}
+\end{tools}
+
+\end{minipage}
+\begin{minipage}[t]{0.55\textwidth}
+\vspace{-0.1in}
+\begin{gather*}
+\boxed{\lim_{j\rightarrow \infty }u_{j} \in \mathcal{L}^1(\mu )} \\
+\Uparrow  \\
+|\lim_{j\rightarrow \infty }u_{j}|\leq w \\
+\Uparrow  \\
+|u_{j}|\leq w
+\end{gather*}
+\begin{gather*}
+\boxed{\lim_{j\rightarrow \infty } \int |u_{j}-u|\  d\mu =0} \\
+\Uparrow  \\
+0\leq  \liminf_{j\rightarrow \infty } \int |u_{j}-u| d\mu  \leq  \limsup _{j\rightarrow \infty } \int  |u_{j}-u|\  d\mu \leq 0 \\
+\Uparrow  \\
+\limsup _{j\rightarrow \infty } \int  |u_{j}-u|\  d\mu \leq 0 \\
+\Uparrow  \\
+0\leq \liminf _{j\rightarrow \infty } \int - |u_{j}-u|\  d\mu  \\
+\Uparrow  \\
+\int 2w\  d\mu  \leq  \int 2w\  d\mu  + \liminf _{j\rightarrow \infty } \int  -|u_{j}-u|\  d\mu  \\
+\Uparrow  \\
+\int  \liminf _{j\rightarrow \infty } (2w - |u_{j}-u|)\  d\mu \  \leq \liminf _{j\rightarrow \infty }\int 2w - |u_{j}-u|\  d\mu \   \\
+\Uparrow  \\
+2w - |u_{j}-u|\in \mathcal{M}_{\bar{\Bbb{R}}}^+
+\end{gather*}
+
+\end{minipage}
+
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+
+\newpage
+\begin{minipage}[t]{0.46\textwidth}
+\begin{given}
+\begin{itemize}
+\item \(\varnothing \neq (a,b)\subseteq \Bbb{R} \)
+\item \(u:(a,b)\times X\rightarrow  \Bbb{R}\) a function such that:
+\begin{itemize}
+  \item \(x\mapsto  u (t,x)\) is in \(\mathcal{L}^1(\mu )\) for every fixed \(t\in (a,b)\).
+  \item \(t\mapsto u(t,x)\) is continuous for every fixed \(x\in X\)
+  \item \(|u(t,x)|\leq w(x)\) for all \((t,x)\in (a,b)\times X\) and some \(w\in \mathcal{L}_{+}^1(\mu ).\)
+
+\end{itemize}
+\item the function \(v:(a,b)\rightarrow \Bbb{R}\) given by
+\[
+t\mapsto v(t):= \int  u(t,x)\  \mu (dx)
+\]
+
+\end{itemize}
+\end{given}
+
+\begin{random}
+\begin{itemize}
+  \item \(\displaystyle t\in (a,b),\  (t_{j})_{j\in \Bbb{N}}\subseteq (a,b): \lim_{j\rightarrow \infty }t_{j}=t\)
+ \item \( x \in X\)
+\end{itemize}
+
+\end{random}
+
+\end{minipage}
+\begin{minipage}[t]{0.55\textwidth}
+\vspace{-0.1in}
+\begin{gather*}
+v \text{ is continuous} \\
+\Uparrow  \\
+\lim_{j\rightarrow \infty }v(t_{j})=v(t) \\
+\Uparrow  \\
+\lim_{j\rightarrow \infty }\int  u(t_{j},x)=\int u(t,x) \\
+\Uparrow  \\
+\lim_{j\rightarrow \infty }\int  u(t_{j},x)=\int \lim_{j\rightarrow \infty }u(t_{j},x) \\
+\Uparrow  \\
+|u(t_{j},x)|\leq  w(x)\  \text{ and }\  \lim_{j\rightarrow \infty }u(t_{j},x)\  \text{ exists }a.e.
+\end{gather*}
+
+\end{minipage}
+
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+
+\begin{minipage}[t]{0.46\textwidth}
+\begin{given}
+\begin{itemize}
+\item \(\alpha \in \Bbb{R}\)
+\item \(f_\alpha (x):= x^\alpha , x>0\) 
+
+\end{itemize}
+\end{given}
+
+\begin{random}
+\begin{itemize}
+  \item \(\displaystyle t\in (a,b),\  (t_{j})_{j\in \Bbb{N}}\subseteq (a,b): \lim_{j\rightarrow \infty }t_{j}=t\)
+ \item \( x \in X\)
+\end{itemize}
+
+\end{random}
+
+\begin{tools}
+\begin{itemize}
+\item a continuous function is Borel measurable. 
+\item a positive measurable function is integrable if the integral is finite 
+\item \(\displaystyle
+(u_{j}\uparrow )\subseteq \mathcal{M}_{\bar{\Bbb{R}}}^+ \Longrightarrow  \int  \lim_{j\rightarrow  \infty } u_{j}\  d\mu  = \lim_{j\rightarrow \infty } \int  u_{j}\  d\mu 
+\)
+\item If \(u\) is \(\lambda \)-a.e. continuous, then \(u\in \mathcal{L}^1(\lambda )\) and
+\[
+\int _{[a,b]} u\  d\lambda  = (R) \int _{a}^b u(x)\  dx
+\]
+\end{itemize}
+\end{tools}
+
+\end{minipage}
+\begin{minipage}[t]{0.55\textwidth}
+\vspace{-0.1in}
+\begin{gather*}
+f_\alpha \in \mathcal{L}^1(0,1)\  \Longleftrightarrow \  \alpha >-1 \\
+\Uparrow  \\
+\int 1_{(0,1)}(x)\  x^\alpha  d\lambda < \infty  \Longleftrightarrow  \alpha >-1 \\
+\Uparrow  \\
+\int 1_{(0,1)}(x)\  x^\alpha  d\lambda  = \lim_{j\rightarrow \infty } \bigg(\frac{1}{\alpha +1} - \frac{1}{j^{\alpha +1}(\alpha +1)}\bigg) \\
+\Uparrow  \\
+\int \lim_{j\rightarrow \infty } 1_{[1/j,1)}(x)\    x^\alpha \  d\lambda  =  \lim_{j\rightarrow \infty }\Big[\frac{x^{\alpha +1}}{\alpha +1}\Big]_{1/j}^{1} \\
+\Uparrow  \\
+\lim_{j\rightarrow \infty } \int  1_{[1/j,1)}(x)\  x^\alpha \ d\lambda \  = \lim_{j\rightarrow \infty }(R) \int _{1/j}^{1} x^\alpha \  dx
+\end{gather*}
+\end{minipage}
+
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+
+\begin{minipage}[t]{0.46\textwidth}
+\begin{given}
+\begin{itemize}
+\item \(\alpha >-1\) and \(\beta \geq 0\)
+\item \(f(x):=x^\alpha e^{-\beta x},x>0\)
+\end{itemize}
+\end{given}
+
+\begin{random}
+\begin{itemize}
+ \item \( x >0\)
+\end{itemize}
+
+\end{random}
+
+\begin{tools}
+\begin{itemize}
+\item a continuous function is Borel measurable. 
+\item \(\displaystyle
+u\in \mathcal{M}_{\bar{\Bbb{R}}} \  \text{ and }\  \exists w\in \mathcal{L}^{1}_{\bar{\Bbb{R}}_{+}}(\mu ): |u|\leq w \\\Longrightarrow  u\in \mathcal{L}_{\bar{\Bbb{R}}}^1(\mu )
+\)
+\item \(e^x \leq 1 \) for $x\leq 0$
+\item \(e^x = \sum_{k=0}^\infty x^k/k!\)
+\item \(x^\alpha \in \mathcal{L}^1(0,1)\  \Longleftrightarrow \  \alpha >-1 \)
+\item \(x^\alpha \in \mathcal{L}^1[1,\infty)\  \Longleftrightarrow \  \alpha <-1 \)
+\end{itemize}
+\end{tools}
+
+\end{minipage}
+\begin{minipage}[t]{0.55\textwidth}
+\vspace{-0.1in}
+\begin{gather*}
+\boxed{f\in \mathcal{L}^1(0,\infty )} \\
+\Uparrow  \\
+x^\alpha e^{-\beta x} \leq  w(x) \qquad\text{ for some }w\in \mathcal{L}^1(0,\infty ) 
+\end{gather*}
+\begin{gather*}
+\boxed{x^{\alpha }e^{-\beta x}\leq x^\alpha  1_{(0,1)}(x)+\frac{N!}{\beta ^n}x^{\alpha -N}1_{[1,\infty )}(x)} \\
+\Uparrow  \\
+e^{-\beta x} \leq  1\  \text{ and }\  e^{-\beta x}\leq \frac{N!}{\beta ^N}x^{-N} \\
+\Uparrow  \\
+\frac{(\beta x)^n}{N!}\leq e^{\beta x} \\
+\Uparrow  \\
+\frac{(\beta x)^N}{N!}\leq \sum _{j=0}^\infty \frac{(\beta x)^j}{j!}
+\end{gather*}
+\begin{gather*}
+\boxed{x^\alpha  1_{(0,1)}(x)+\frac{N!}{\beta ^n}x^{\alpha -N}1_{[1,\infty )}(x)\in \mathcal{L}^1(0,\infty )} \\
+\Uparrow  \\
+x^\alpha  \in \mathcal{L}^1(0,1) \qquad x^{\alpha -N}\in \mathcal{L}^1[1,\infty ) \\
+\Uparrow  \\
+\alpha >-1 \qquad \alpha -N<-1 \\
+\Uparrow  \\
+\text{Set }\  N:=\lfloor \alpha -2\rfloor \in \Bbb{N} 
+\end{gather*}
+\end{minipage}
+
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}

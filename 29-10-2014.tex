@@ -1,0 +1,154 @@
+\section{29-10-2014}
+\subsection{Measure Theory Chapter 11}
+
+\begin{thm}
+Let \((X,\mathcal{A},\mu )\) be a measure space.
+
+\begin{enumerate}
+  \item Let \((u_{j})_{j\in \Bbb{N}}\subseteq \mathcal{L}^1(\mu )\) be an increasing sequence of integrable functions \(u_{1}\leq u_{2}\leq \ldots \) with limit \(u:=\sup_{j\in \Bbb{N}}u_{j}.\) Then \(u\in \mathcal{L}^1(\mu )\) if, and only if, \(\sup_{j\in \Bbb{N}} \int  u_{j} d\mu <\infty ,\) in which case
+\[
+\sup_{j\in \Bbb{N}} \int  u_{j} d\mu  = \int  \sup_{j\in \Bbb{N}} u_{j} d\mu 
+\]
+  \item Let \((v_{k})_{k\in \Bbb{N}}\subseteq \mathcal{L}^1(\mu )\) be a decreasing sequence of integrable functions \(v_{1}\geq v_{2}\geq  \ldots  \) with limit \(v:=\inf_{k\in \Bbb{N}}d\mu .\) Then \(v\in \mathcal{L}^1(\mu )\) if, and only if, \(\inf_{k\in \Bbb{N}}\int v_{k}\  d\mu >-\infty ,\) in which case
+\[
+\inf_{k\in \Bbb{N}}\int v_{k} d\mu  = \int  \inf_{k\in \Bbb{N}}v_{k}\  d\mu 
+\]
+\end{enumerate}
+\end{thm}
+
+\begin{thm}
+Let \((X,\mathcal{A},\mu )\) be measure space and \((u_{j})_{j\in \Bbb{N}}\subseteq \mathcal{L}^1(\mu )\) be a sequence of functions such that \(|u_{j}|\leq w\) for all \(j\in \Bbb{N}\) and some \(w\in \mathcal{L}_{+}^1(\mu ).\) If \(u(x)=\lim_{j\rightarrow \infty }u_{j}(x)\) exists for almost every \(x\in X\) then \(u\in \mathcal{L}^1(\mu )\) and we have
+
+\begin{enumerate}
+  \item \(\lim_{j\rightarrow \infty } \int |u_{j}-u|\  d\mu =0\)
+  \item \(\lim_{j\rightarrow \infty } \int  u_{j}\  d\mu  = \int  \lim_{j\rightarrow \infty } u_{j} d\mu  =\int  u d\mu \)
+\end{enumerate}
+
+\end{thm}
+
+\begin{thm}
+Let \(\varnothing \neq (a,b)\subseteq \Bbb{R}\) be a non-degenerate open interval and \(u:(a,b)\times X\rightarrow  \Bbb{R}\) be a function satisfying
+
+\begin{enumerate}
+  \item \(x\mapsto  u (t,x)\) is in \(\mathcal{L}^1(\mu )\) for every fixed \(t\in (a,b)\).
+  \item \(t\mapsto u(t,x)\) is continuous for every fixed \(x\in X\)
+  \item \(|u(t,x)|\leq w(x)\) for all \((t,x)\in (a,b)\times X\) and some \(w\in \mathcal{L}_{+}^1(\mu ).\)
+\end{enumerate}
+
+Then the function \(v:(a,b)\rightarrow \Bbb{R}\) given by
+\[
+t\mapsto v(t):= \int  u(t,x)\  \mu (dx)
+\]
+is continuous.
+\end{thm}
+
+\begin{thm}
+Let \(\varnothing  \neq  (a,b) \subseteq \Bbb{R}\) be a non-degenerate open interval and \(u : (a,b) \times X \rightarrow \Bbb{R}\) be a function satsifying:
+
+\begin{enumerate}
+  \item \(x\mapsto  u(t,x)\) is in \(\mathcal{L}^1(\mu )\) for every fixed \(t\in (a,b)\).
+  \item \(t\mapsto u(t,x)\) is differentiable for every fixed \(x\in X\)
+  \item \(|\partial _{t}u(t,x)|\leq w(x)\) for all \((t,x)\in (a,b) \times X\) and some \(w\in \mathcal{L}_{+}^1(\mu )\)
+\end{enumerate}
+
+Then the function \(v:(a,b)\rightarrow \Bbb{R}\) given by
+\[
+t\mapsto  v(t):= \int  u(t,x)\  \mu (dx)
+\]
+is differentiable and its derivative is
+\[
+\partial _{t} v(t) = \int  \partial _{t} u(t,x) \mu (dx).
+\]
+\end{thm}
+
+\begin{defn}
+Consider on the finite interval \([a,b]\subseteq \Bbb{R}\) the partitions
+\[
+\pi :=\{a=t_{0}<t_{1}<\ldots <t_{k(\pi )}=b,
+\]
+define for a given function \(u:[a,b]\rightarrow \Bbb{R}\)
+\[
+m_{j}:=\inf_{x\in [t_{j-1},t_{j}]} u(x) \qquad M_{j}:=\sup_{x\in [t_{j-1},t_{j}]} u(x) \qquad j=1,2,\ldots ,k(\pi )
+\]
+and introduce the lower resp. upper Darboux sums
+\[
+S_\pi [u] := \sum _{j=1}^{k(\pi )} m_{j} (t_{j}-t_{j-1}) \qquad S^\pi [u]:= \sum _{j=1}^{k(\pi )}M_{j}(t_{j}-t_{j-1})
+\]
+\end{defn}
+\begin{defn}
+A bounded function \(u:[a,b]\rightarrow \Bbb{R}\) is said to be Riemann integrable, if the values
+\[
+\int _*u:=\sup_{\pi }S_\pi [u] = \inf_{\pi }S^\pi [u]:=\int ^* u
+\]
+(sup,inf range over all partitions \(\pi \) of \([a,b]\)) conincide and are finite. Their common value is called the Riemann integral of \(u\) and denoted by \((R)\int _{a}^b u(x)\  dx\) or \(\int _{a}^b u(x)\  dx.\)
+\end{defn}
+
+\begin{prop}
+\(S_{\pi }[u]\) and \(S^\pi [u]\) correspond to simple functions \(\sigma _\pi [u]\) and \(\Sigma ^\pi [u]\) given by
+\[
+\sigma _\pi [u](x) = \sum _{j=1}^{k(\pi )} m_{j} 1_{[t_{j-1},t_{j})}(x) \qquad \Sigma ^\pi [u](x)= \sum _{j=1}^{k(\pi )}M_{j} 1_{[t_{j-1},t_{j})}(x)
+\]
+which satisfy \(\sigma _\pi [u](x)\leq u(x)\leq \Sigma ^\pi [u](x)\) and which increase resp. decrease as \(\pi \) refines.
+\end{prop}
+
+\begin{thm}
+Let \(u:[a,b]\rightarrow \Bbb{R}\) be a measurable function.
+
+\begin{enumerate}
+  \item If \(u\) is Riemann integrable, then \(u\) is in \(\mathcal{L}^1(\lambda )\) and the Lebesgue and Riemann integrals coincide:
+\[
+\int _{[a,b]}u\  d\lambda  = (R) \int _{a}^b u(x)\  dx.
+\]
+  \item A bounded function $f:[a,b]\rightarrow \Bbb{R}$ is Riemann integrable if, and only if, the points \((a,b)\) where \(f\) is discontinuous are a Lebesgue null set.
+\end{enumerate}
+\end{thm}
+
+
+\begin{defn}
+An improper Riemann integral is defined as
+\[
+(R)\int _{0}^\infty  u(x)\  dx := \lim_{a\rightarrow \infty }(R) \int _{0}^a u(x)\  dx
+\]
+provided that the limit exists.
+\end{defn}
+
+\begin{thm}
+Let \(u:[0,\infty ) \rightarrow \Bbb{R}\) be a measurable function which is Riemann integrable for every interval \([0,N], n\in \Bbb{N}.\) Then \(u\in \mathcal{L}^1[0,\infty )\) if, and only if,
+\[
+\lim_{N\rightarrow \infty }(R)\int _{0}^N |u(x)| dx <\infty .
+\]
+In this case, \((R)\int _{0}^\infty  u(x) dx = \int _{[0,\infty )}u\  d\lambda .\)
+\end{thm}
+
+\begin{prop}
+The function \(s : (0,\infty ) \rightarrow  \Bbb{R} : x\mapsto  \frac{\sin x}{x}\) is improperly Riemann integrable but not Lebesgue integrable.
+\end{prop}
+
+\begin{prop}
+Let \(f_\alpha (x):= x^\alpha , x>0\) and \(\alpha \in \Bbb{R}.\) Then
+\begin{gather*}
+f_\alpha \in \mathcal{L}^1(0,1)\  \Longleftrightarrow \  \alpha >-1 \\
+f_\alpha  \in \mathcal{L}^1[1,\infty ) \Longleftrightarrow \  \alpha <-1
+\end{gather*}
+\end{prop}
+
+\begin{prop}
+The function \(f(x):=x^\alpha e^{-\beta x},x>0\) is Lebesgue integrable over \((0,\infty )\) for all \(\alpha >-1\) and \(\beta \geq 0.\)
+\end{prop}
+
+\begin{prop}
+The parameter-dependent integral
+\[
+\Gamma (t):=\int _{(0,\infty )} x^{t-1}e^{-x}\lambda (dx) \qquad t>0
+\]
+is called the Gamma function. It has the following properties:
+
+\begin{enumerate}
+  \item \(\Gamma \) is continuous
+  \item \(\Gamma \) is arbitrarily often differentiable
+  \item \(t\Gamma (t)=\Gamma (t+1)\) in particular \(\Gamma (n+1)=n!\)
+  \item \(\ln \Gamma (t)\) is convex
+\end{enumerate}
+
+\end{prop}
+
